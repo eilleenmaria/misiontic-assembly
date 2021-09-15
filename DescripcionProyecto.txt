@@ -9,8 +9,10 @@ Presentación Miembros Assembly:
   Eilleen Maria Gutiérrez Acosta:
 
   Idelgar Díaz Narvaez:
+  Tecnologo en Sistemas de la Institucion Universitaria CESMAG,  manejo los temas de bases de Datos sqlserver, redes , mantenimiento, windows server
+  Programacion en PHP, C#, Visual Studio, lo de python y java  lo que se ha aprendido en este curso.
 
-  Manuel Alejandro Jojoa Bucheli: 
+   Manuel Alejandro Jojoa Bucheli: 
   Ingeniero Químico de la Universidad Nacional de Colombia, Posee una afinidad por los temas de 
   programación informática. maneja programas cómo Matlab, Scilab, java y python. cree en la posibilidad
   de mejorar la calidad de vida de Colombia con ideas innovadoras desde todas las áreas de la ciencia. 
