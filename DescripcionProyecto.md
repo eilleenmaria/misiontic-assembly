@@ -18,6 +18,8 @@ Presentación Miembros Assembly:
   Tecnologa Agroindustrial de la Institucion Tecnologica Soledad Atlantico ITSA. Conocimientos en programas como python, java.
   
   Nataly Jaramillo Padredin:
+  Estadística e Ingeniera Industrial de la Universidad del Valle. Con experiencia en analítica de datos y business intelligence.
+  Manejo software R y con toda la actitud para aprender mucho más.
 
   Cesar Augusto Mesa Castaño:
 
