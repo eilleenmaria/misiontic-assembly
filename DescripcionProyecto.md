@@ -22,5 +22,7 @@ Presentación Miembros Assembly:
   Manejo software R y con toda la actitud para aprender mucho más.
 
   Cesar Augusto Mesa Castaño:
+  Ingeniero de Sistemas Y Computacion de la Universidad del Quindio. Conocimientos en lenjuages de programacion SQL, PLSQL, JAVA, PHP..
+
 
  
