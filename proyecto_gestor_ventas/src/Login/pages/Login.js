@@ -1,51 +1,60 @@
 import React from 'react';
-import "./Login.css"
+import "./Login.css";
 import {Link} from "react-router-dom";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 
 
-function Login() {
-  return (
-    <div className="todoapp stack-large">
-      <h1>Portal de ventas Assembly</h1>
-      <form>
-        <h2 className="label-wrapper">
-          <label htmlFor="new-todo-input" className="label__lg">
-            Usuario
-          </label>
-        </h2>
-        <input
-          type="text"
-          id="new-todo-input"
-          className="input input__lg"
-          name="text"
-          autoComplete="off"
-        />
+const Login = () => {
 
-        <h2 className="label-wrapper">
-          <label htmlFor="new-todo-input" className="label__lg">
-            Contraseña
-          </label>
-        </h2>
-
-        <input
-          type="text"
-          id="new-todo-input"
-          className="input input__lg"
-          name="text"
-          autoComplete="off"
-        />
-
-      </form>
-      <div className="filters btn-group stack-exception">
-
-        <Link to="/RegistroVentas">
-            <button type="button" className="btn btn__danger" >
-              Iniciar sesión 
-            </button>
-        </Link>    
+    return (
+    <div className="ContenedorLogin" > 
         
-       </div>
+        <main className="form-signin">
+
+        <p class="text-center h5">Ingreso en Assembly</p>
+
+        <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Usuario</Form.Label>
+                <Form.Control type="email" placeholder="Ingrese su usuario" />
+                <Form.Text className="text-muted">
+                
+                </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control type="password" placeholder="Ingrese su contraseña" />
+            </Form.Group>
+            
+            <Container>
+                <Row className="justify-content-md-center">
+                    <Col>
+                            <Button variant="primary" type="submit">
+                            Ingresar
+                            </Button>
+                    </Col>
+                        
+                    <Col>
+                        <Link to="/RegistroVentas">
+                        <Button variant="primary" type="submit">
+                            Invitado
+                        </Button>
+                        </Link>
+                    </Col>
+                </Row>
+            </Container>
+            
+            
+        </Form>
+        </main>
     </div>
-  );
-}
+    )
+};
+
 export default Login;

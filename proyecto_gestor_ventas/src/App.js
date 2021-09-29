@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {BrowserRouter as Router, 
   Route, 
@@ -7,6 +7,7 @@ import {BrowserRouter as Router,
   Redirect,
 } from "react-router-dom";
 
+import Header from "./Shared/components/Header";
 import GestionUsuarios from "./GestionUsuarios/pages/GestionUsuarios";
 import ListadoProductos from "./ListadoProductos/pages/ListadoProductos";
 import ListadoVentas from "./ListadoVentas/pages/ListadoVentas";
@@ -14,11 +15,14 @@ import Login from "./Login/pages/Login";
 import RegistroProductos from "./RegistroProductos/pages/RegistroProductos";
 import RegistroVentas from "./RegistroVentas/pages/RegistroVentas";
 
-
 const App = () => {
   return (
     <Router>
+      <Header/>
       <Switch>
+        <Route path="/" exact>
+          <Login/>
+        </Route>
         <Route path="/GestionUsuarios" exact>
           <GestionUsuarios/>
         </Route>
@@ -27,9 +31,6 @@ const App = () => {
         </Route>
         <Route path="/ListadoVentas" exact>
           <ListadoVentas/>
-        </Route>
-        <Route path="/" exact>
-          <Login/>
         </Route>
         <Route path="/RegistroProductos" exact>
           <RegistroProductos/>
