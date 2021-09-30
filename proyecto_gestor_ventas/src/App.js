@@ -13,7 +13,7 @@ import ListadoProductos from "./ListadoProductos/pages/ListadoProductos";
 import ListadoVentas from "./ListadoVentas/pages/ListadoVentas";
 import Login from "./Login/pages/Login";
 import RegistroProductos from "./RegistroProductos/pages/RegistroProductos";
-import RegistroVentas from "./RegistroVentas/pages/RegistroVentas";
+import RegistroVentas from "./RegistroVentas/pages/NuevaVenta";
 
 const App = () => {
   return (
