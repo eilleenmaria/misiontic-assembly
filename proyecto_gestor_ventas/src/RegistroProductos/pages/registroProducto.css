@@ -75,7 +75,7 @@ select{
     
 }
 .boton button{
-    background-color:blue;
+    background-color:#428bca;
     color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -87,6 +87,7 @@ select{
     -moz-transition: 1s;
 }
 .boton button:hover{
-    background-color: cornflowerblue;
+    background-color: #428bca;
     
 }
+

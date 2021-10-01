@@ -1,5 +1,6 @@
 import React from 'react';
 import "./registroProducto.css";
+
 const RegistroProductos = () => {
 
     return (
@@ -7,7 +8,7 @@ const RegistroProductos = () => {
             <main>
     
       
-    <h1>REGISTRO DE PRODUCTO</h1>             
+           <h1>REGISTRO DE PRODUCTO</h1>          
          
     <form >
         <div class="ident">
@@ -41,7 +42,7 @@ const RegistroProductos = () => {
 
         <div class="boton">
             <button>Agregar</button>
-            <button>Eliminar</button>
+            
 
         </div>
         
