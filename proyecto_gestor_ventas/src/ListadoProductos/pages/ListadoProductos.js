@@ -1,3 +1,6 @@
+import Form from 'react-bootstrap/Form';
+import "../../styles/styles.css"
+
 const ListadoProductos = () => { 
 
 return <h1> 
