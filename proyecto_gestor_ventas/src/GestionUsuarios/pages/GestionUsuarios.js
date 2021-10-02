@@ -15,7 +15,7 @@ const GestionUsuarios = () => {
                     <div>
                         <h1> 
                             <center>
-                            GESTION DE USUARIOS
+                            Gestión de Usuarios
                             </center>
                         </h1>
 
