@@ -1,7 +1,9 @@
 #container h1{
-    font-size:35px;
-    display:inline-block;
+    font-size:1.25rem;
+    font-weight: 500;
+    margin: 30px;
 }
+
 table{
     border-collapse: collapse;
     font-size: 12pt;
@@ -103,6 +105,7 @@ table td{
 }
 .form-search-date input{
     width: auto;
+    color: gray;
 }
 .form-search-date .btn-view{
     padding: 8px;

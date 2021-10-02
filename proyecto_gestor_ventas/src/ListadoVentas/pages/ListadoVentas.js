@@ -8,33 +8,79 @@ const ListadoVentas = () => {
 
     return (
         <main id="container">
-        <h1>LISTADO DE VENTAS</h1>
-        <form action="" method="get" class="form-search">
-            <input type="text" name="busqueda" id="busqueda" placeholder="Id Venta"/>
-            <button type="submit"  class="btn-search">< img src={buscar}/></button>
-        </form>
+        <h1>Listado de Ventas</h1>
+    
         <div>
-            <h5>Listar por fecha</h5>
             <form action="" method="get" class="form-search-date">
+            <label>Rangos de fechas:</label>
                 <label>De:</label>
+                <div class="buscar">   
                 <input type="date" name="fecha-de" id="fecha-de" required/>
+                </div>
                 <label>A</label> 
+                <div class="buscar"> 
                 <input type="date" name="fecha-a" id="fecha-a" required/>
                 <button type="submit" class="btn-view"><img src={buscar}/></button>
 
+                </div>
+                <label>ID Venta:</label>
+                <div class="buscar">
+                 
+            <form>
+            <input id="inputBuscar" placeholder="Ingrese el ID " />
+            <i class="fas fa-search botonGenerico iconoBusqueda"></i>
+            </form> 
+            <button type="submit" class="btn-view"><img src={buscar}/></button> 
+        </div>
+
+
             </form>
         </div>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Fecha</th>
-                <th>Cliente</th>
-                <th>Vendedor</th>
-                <th>Estado</th>
-                <th class="textrigth">Total Factura</th>
-                <th class="textright">Acciones</th>           
 
-            </tr>
+        <div class="table w-full p-2">   
+        <table class="w-full border">
+            <thead>
+                <tr class="bg-gray-50 border-b"> 
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                        ID venta
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                        Fecha
+                        </div>
+                    </th>
+                    
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                        Cliente
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                        Vendedor
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                        Estado
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                        Total factura ($)
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                        Acciones
+                        </div>
+                    </th>
+                    
+                </tr>          
+
+            </thead>
             <tr>
             <td>1</td>
                 <td>2022-10-01</td>
@@ -49,8 +95,12 @@ const ListadoVentas = () => {
                 </td>
                
             </tr>
+
+            
         </table>
-        <div class="paginador">
+        </div>
+
+        <div class="paginador flex items-center justify-center">
             <ul>
                 <li><a href="#">|&lt;</a></li>
                 <li><a href="#">|&lt;&lt;</a></li>
