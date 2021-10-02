@@ -4,11 +4,12 @@ import "./registroProducto.css";
 const RegistroProductos = () => {
 
     return (
+
         <div>
             <main class="main1">
     
       
-           <h1>REGISTRO DE PRODUCTO</h1>          
+           <h1>Registro de Productos</h1>          
          
     <form class="form1" >
         <div class="ident">
@@ -17,34 +18,34 @@ const RegistroProductos = () => {
         </div>
 
         <div class="ident">
-            <label for="produc" >PRODUCTO</label>
+            <label for="produc" >Producto</label>
             <input type="text" id="produc"/>
         </div>
 
         <div class="ident">
-            <label for="descrip" >DESCRIPCION</label>
+            <label for="descrip" >Descripción</label>
             <input type="text" id="descproduc"/>
         </div>
 
         <div class="ident">
-            <label for="valorunit" >VALOR UNITARIO</label>
+            <label for="valorunit" >Valor Unitario ($)</label>
             <input type="text" class="id" id="valorunit"/>
         </div>
         
         <div class="ident">
-            <label>ESTADO</label>
+            <label>Estado del producto</label>
             <select>
-                 <option selected disabled>Seleccione una opcion</option>                
+                 <option selected disabled>Seleccione una opción</option>                
                  <option>Disponible</option>
                  <option>No disponible</option>
             </select>
         </div>
 
         <div class="boton">
-            <button>Agregar</button>
+            <button variant="primary">Agregar producto</button>
             
 
-        </div>
+    </div>
         
         
     </form>
