@@ -10,42 +10,48 @@ const RegistroProductos = () => {
            <h1>Registro de Productos</h1>          
          
     <form >
-        <div class="ident">
-            <label for="IDproduc">ID</label>
-            <input type="text" class="id" id="IDproduct"/> 
+        <div>
+            <label>ID del producto nuevo</label>
+            <form className="d-flex">
+                <input className="form-control me-2" type="search" placeholder="Ingrese ID"  />
+            </form>
         </div>
 
-        <div class="ident">
-            <label for="produc" >Producto</label>
-            <input type="text" id="produc"/>
+        <div>
+            <label>Nombre del Producto</label>
+            <form className="d-flex">
+                <input className="form-control me-2" type="search" placeholder="Ingrese nombre del producto"  />
+            </form>
         </div>
 
-        <div class="ident">
-            <label for="descrip" >Descripción</label>
-            <input type="text" id="descproduc"/>
+        <div>
+            <label>Descripción</label>
+            <form className="d-flex">
+                <input className="form-control me-2" type="search" placeholder="Ingrese descripción del producto (Marca, color, tamaño...)"  />
+            </form>
+        </div>        
+
+        <div>
+            <label>Valor Unitario ($)</label>
+            <form className="d-flex">
+                <input className="form-control me-2" type="search" placeholder="Ingrese el valor unitario en pesos"  />
+            </form>
         </div>
 
-        <div class="ident">
-            <label for="valorunit" >Valor Unitario ($)</label>
-            <input type="text" class="id" id="valorunit"/>
+        <div>
+            <label>Estado del producto</label>
+            <form className="d-flex">
+                <select>
+                    <option selected disabled>Seleccione una opción</option>                
+                    <option>Disponible</option>
+                    <option>No disponible</option>
+                </select>
+            </form>
         </div>
         
-        <div class="ident">
-            <label>Estado del producto</label>
-            <select>
-                 <option selected disabled>Seleccione una opción</option>                
-                 <option>Disponible</option>
-                 <option>No disponible</option>
-            </select>
-        </div>
-
         <div class="boton">
             <button variant="primary">Agregar producto</button>
-            
-
-    </div>
-        
-        
+        </div>        
     </form>
 
 

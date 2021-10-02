@@ -4,6 +4,7 @@ import "../../styles/styles.css"
 const ListadoProductos = () => { 
 
 return <h1> 
+        <h1> Listado de Productos</h1>
         <div className="bg-light text-secondary px-4 py-5 text-center">
       
       <div className="col-sm-6 mx-auto">
@@ -16,10 +17,10 @@ return <h1>
               </button>
               <div className="collapse navbar-collapse" id="navbarScroll">
                 
-            
+              
                 <form className="d-flex">
-                   <input className="form-control me-2" type="search" placeholder="Id/Nombre Producto" aria-label="Buscar" />
-                     <button className="btn btn-outline-success" type="submit">Buscar</button>
+                     <input className="form-control me-2" type="search" placeholder="Ingrese ID o nombre"  />
+                     <button className="bg-blue-500 p-1 text-white " type="submit">Buscar</button>
 
                 </form>
               </div>
@@ -56,7 +57,7 @@ return <h1>
                                 </th>
                                 <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                                     <div class="flex items-center justify-center">
-                                        Valor Unitario
+                                        Valor Unitario ($)
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                             stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -67,7 +68,7 @@ return <h1>
                                 
                                 <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                                     <div class="flex items-center justify-center">
-                                        Opcion
+                                        Estado
 
                                     </div>
                                 </th>
@@ -82,7 +83,7 @@ return <h1>
                                 <td class="p-2 border-r">123.455</td>
                                 <td>
                                    <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
-                                     <option value="0">Estado...</option>
+                                     <option value="0"></option>
                                      <option value="1">Disponible</option>
                                      <option value="2">No disponible</option>
                                     </Form.Select>                   
@@ -94,7 +95,7 @@ return <h1>
                                 <td class="p-2 border-r">10.395</td>
                                 <td>
                                 <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
-                                     <option value="0">Estado...</option>
+                                     <option value="0"></option>
                                      <option value="1">Disponible</option>
                                      <option value="2">No disponible</option>
                                     </Form.Select>
@@ -106,7 +107,7 @@ return <h1>
                                 <td class="p-2 border-r">47.582</td>
                                 <td>
                                 <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
-                                     <option value="0">Estado...</option>
+                                     <option value="0"></option>
                                      <option value="1">Disponible</option>
                                      <option value="2">No disponible</option>
                                     </Form.Select>
@@ -118,7 +119,7 @@ return <h1>
                                 <td class="p-2 border-r">58.980</td>
                                 <td>
                                    <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
-                                     <option value="0">Estado...</option>
+                                     <option value="0"></option>
                                      <option value="1">Disponible</option>
                                      <option value="2">No disponible</option>
                                   </Form.Select>
@@ -129,8 +130,8 @@ return <h1>
                                 <td class="p-2 border-r">Nombre/Marca/Volumen/Ref</td>
                                 <td class="p-2 border-r">236.471</td>
                                 <td>
-                                   <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
-                                     <option value="0">Estado...</option>
+                                   <Form.Select className="me-sm-1" id="inlineFormCustomSelect">
+                                     <option value="0"></option>
                                      <option value="1">Disponible</option>
                                      <option value="2">No disponible</option>
                                    </Form.Select>
