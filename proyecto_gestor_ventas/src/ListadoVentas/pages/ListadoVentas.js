@@ -22,9 +22,7 @@ const ListadoVentas = () => {
                 <input type="date" name="fecha-a" id="fecha-a" required/>
                 <button type="submit" class="btn-view"><img src={buscar}/></button>
 
-                </div>
-                <label>ID Venta:</label>
-                <div class="buscar">
+                
                  
             <form>
             <input id="inputBuscar" placeholder="Ingrese el ID " />
@@ -36,53 +34,20 @@ const ListadoVentas = () => {
 
             </form>
         </div>
-
-        <div class="table w-full p-2">   
-        <table class="w-full border">
-            <thead>
-                <tr class="bg-gray-50 border-b"> 
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                        <div class="flex items-center justify-center">
-                        ID venta
-                        </div>
-                    </th>
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                        <div class="flex items-center justify-center">
-                        Fecha
-                        </div>
-                    </th>
-                    
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                        <div class="flex items-center justify-center">
-                        Cliente
-                        </div>
-                    </th>
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                        <div class="flex items-center justify-center">
-                        Vendedor
-                        </div>
-                    </th>
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                        <div class="flex items-center justify-center">
-                        Estado
-                        </div>
-                    </th>
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                        <div class="flex items-center justify-center">
-                        Total factura ($)
-                        </div>
-                    </th>
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                        <div class="flex items-center justify-center">
-                        Acciones
-                        </div>
-                    </th>
-                    
-                </tr>          
-
-            </thead>
+        <div>
+        <table class="tabla1">
             <tr>
-            <td>1</td>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Vendedor</th>
+                <th>Estado</th>
+                <th class="textrigth">Total Factura</th>
+                <th class="textright">Acciones</th>           
+            </tr>        
+                
+            <tr>
+                <td>1</td>
                 <td>2022-10-01</td>
                 <td>Melanyn Grces</td>
                 <td>Pedro Perez</td>

@@ -4,8 +4,10 @@ import "./registroProducto.css";
 const RegistroProductos = () => {
 
     return (
-    <div className="ContenedorRP" > 
-            <main>
+
+        <div>
+            <main class="main1">
+    
       
            <h1>Registro de Productos</h1>          
          
@@ -16,6 +18,7 @@ const RegistroProductos = () => {
                 <input className="form-control me-2" type="search" placeholder="Ingrese ID"  />
             </form>
         </div>
+
 
         <div>
             <label>Nombre del Producto</label>

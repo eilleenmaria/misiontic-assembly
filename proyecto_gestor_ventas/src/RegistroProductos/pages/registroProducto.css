@@ -1,13 +1,7 @@
-main{
+.main1{
     background-color: #fff;
    
     min-height:calc(100vh - 200px);
-}
-.ontenedorRP{
-border: 2px solid  rgb(39, 33, 33);
-}
-.imag{
-    height: 50px;
 }
 
 H1{
@@ -17,7 +11,8 @@ H1{
     color: #020000;
     padding: 2rem 5rem;
 }
-.ContenedorRP{
+.form1{
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly ;
@@ -26,6 +21,7 @@ H1{
     margin-right: auto;
     margin-left: auto;
     padding: 2rem 15rem;
+    
     
 }
 .ident{
@@ -92,4 +88,3 @@ select{
     background-color: #428bca;
     
 }
-
