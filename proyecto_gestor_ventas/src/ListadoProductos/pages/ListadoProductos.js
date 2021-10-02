@@ -77,7 +77,7 @@ return <h1>
                         </thead>
                         <tbody>
 
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-500">
                                 <td class="p-2 border-r">1</td>
                                 <td class="p-2 border-r">Nombre/Marca/Volumen/Ref</td>
                                 <td class="p-2 border-r">123.455</td>
@@ -89,7 +89,7 @@ return <h1>
                                     </Form.Select>                   
                                 </td>
                             </tr>
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-500">
                                 <td class="p-2 border-r">2</td>
                                 <td class="p-2 border-r">Nombre/Marca/Volumen/Ref</td>
                                 <td class="p-2 border-r">10.395</td>
@@ -101,7 +101,7 @@ return <h1>
                                     </Form.Select>
                                 </td>
                             </tr>
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-500">
                                 <td class="p-2 border-r">3</td>
                                 <td class="p-2 border-r">Nombre/Marca/Volumen/Ref</td>
                                 <td class="p-2 border-r">47.582</td>
@@ -113,7 +113,7 @@ return <h1>
                                     </Form.Select>
                                 </td>
                             </tr>
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-500">
                                 <td class="p-2 border-r">4</td>
                                 <td class="p-2 border-r">Nombre/Marca/Volumen/Ref</td>
                                 <td class="p-2 border-r">58.980</td>
@@ -125,7 +125,7 @@ return <h1>
                                   </Form.Select>
                                 </td>
                             </tr>
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-500">
                                 <td class="p-2 border-r">5</td>
                                 <td class="p-2 border-r">Nombre/Marca/Volumen/Ref</td>
                                 <td class="p-2 border-r">236.471</td>
