@@ -11,7 +11,7 @@ const NuevaVenta = () => {
                     <h1 class="titulo">Registro nueva venta</h1>
                 </div>
                 <div class="contenedor-span">
-                    <span class="spanTexto">NombreCompletoVendedor+ID</span>
+                    <span class="spanTexto">Nombre Vendedor+ID</span>
                     <div class="buscar">
                         <input id="inputBuscar" placeholder="Cliente" />
                         <i class="fas fa-search botonGenerico iconoBusqueda"></i>

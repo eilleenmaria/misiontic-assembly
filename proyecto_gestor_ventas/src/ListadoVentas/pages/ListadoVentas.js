@@ -8,22 +8,33 @@ const ListadoVentas = () => {
 
     return (
         <main id="container">
-        <h1>LISTADO DE VENTAS</h1>
-        <form action="" method="get" class="form-search">
-            <input type="text" name="busqueda" id="busqueda" placeholder="Id Venta"/>
-            <button type="submit"  class="btn-search">< img src={buscar}/></button>
-        </form>
+        <h1>Listado de Ventas</h1>
+    
         <div>
-            <h5>Listar por fecha</h5>
             <form action="" method="get" class="form-search-date">
+            <label>Rangos de fechas:</label>
                 <label>De:</label>
+                <div class="buscar">   
                 <input type="date" name="fecha-de" id="fecha-de" required/>
+                </div>
                 <label>A</label> 
+                <div class="buscar"> 
                 <input type="date" name="fecha-a" id="fecha-a" required/>
                 <button type="submit" class="btn-view"><img src={buscar}/></button>
 
+                
+                 
+            <form>
+            <input id="inputBuscar" placeholder="Ingrese el ID " />
+            <i class="fas fa-search botonGenerico iconoBusqueda"></i>
+            </form> 
+            <button type="submit" class="btn-view"><img src={buscar}/></button> 
+        </div>
+
+
             </form>
         </div>
+        <div>
         <table class="tabla1">
             <tr>
                 <th>ID</th>
@@ -33,10 +44,10 @@ const ListadoVentas = () => {
                 <th>Estado</th>
                 <th class="textrigth">Total Factura</th>
                 <th class="textright">Acciones</th>           
-
-            </tr>
+            </tr>        
+                
             <tr>
-            <td>1</td>
+                <td>1</td>
                 <td>2022-10-01</td>
                 <td>Melanyn Grces</td>
                 <td>Pedro Perez</td>
@@ -49,8 +60,12 @@ const ListadoVentas = () => {
                 </td>
                
             </tr>
+
+            
         </table>
-        <div class="paginador">
+        </div>
+
+        <div class="paginador flex items-center justify-center">
             <ul>
                 <li><a href="#">|&lt;</a></li>
                 <li><a href="#">|&lt;&lt;</a></li>
