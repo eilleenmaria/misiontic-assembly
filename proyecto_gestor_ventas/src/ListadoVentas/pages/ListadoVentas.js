@@ -20,20 +20,23 @@ const ListadoVentas = () => {
                 <label>A</label> 
                 <div class="buscar"> 
                 <input type="date" name="fecha-a" id="fecha-a" required/>
+                </div>
                 <button type="submit" class="btn-view"><img src={buscar}/></button>
-
                 
-                 
-            <form>
-            <input id="inputBuscar" placeholder="Ingrese el ID " />
-            <i class="fas fa-search botonGenerico iconoBusqueda"></i>
-            </form> 
+            <label>ID venta:</label>
+                <div class="buscar">
+                <input type="text" id="inputBuscar" placeholder="Ingrese el ID " />  
+                </div>
+                
+            
+           
             <button type="submit" class="btn-view"><img src={buscar}/></button> 
-        </div>
-
-
+           
             </form>
         </div>
+
+
+          
         <div>
         <table class="tabla1">
             <tr>
