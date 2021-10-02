@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card';
 
 const GestionUsuarios = () => {
     return (
-        <div className="ContenedorLogin" center>   
+        <div className="ContenedorLogin justify-content-md-center" center>   
             <main className="form-signin--md" center>  
                 <form className="row g-3 border" center>
                     <div>
