@@ -5,12 +5,12 @@ const RegistroProductos = () => {
 
     return (
         <div>
-            <main>
+            <main class="main1">
     
       
            <h1>REGISTRO DE PRODUCTO</h1>          
          
-    <form >
+    <form class="form1" >
         <div class="ident">
             <label for="IDproduc">ID</label>
             <input type="text" class="id" id="IDproduct"/> 

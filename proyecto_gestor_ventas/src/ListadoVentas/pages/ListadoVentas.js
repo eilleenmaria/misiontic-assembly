@@ -24,7 +24,7 @@ const ListadoVentas = () => {
 
             </form>
         </div>
-        <table>
+        <table class="tabla1">
             <tr>
                 <th>ID</th>
                 <th>Fecha</th>

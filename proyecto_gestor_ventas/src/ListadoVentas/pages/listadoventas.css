@@ -2,28 +2,23 @@
     font-size:35px;
     display:inline-block;
 }
-table{
+.tabla1{
     border-collapse: collapse;
     font-size: 12pt;
     font-family: Arial;
     width: 100%;
 }
-table th{
+.tabla1 th{
     text-align: left;
     padding: 10px;
-    background: #3d7ba8; ;
+    background: #3d7ba8; 
     color: #fff;
 }
-H1{
-    font-size: 2rem;
-    font-weight: bold;
 
-    color: #707070;
-}
-table tr:nth-child(odd){
+.tabla1 tr:nth-child(odd){
     background: #fff;
 }
-table td{
+.tabla1 td{
     padding: 10px;
 }
 .link-edit{
