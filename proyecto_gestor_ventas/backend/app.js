@@ -1,16 +1,23 @@
 var express = require('express');
 var mongoose = require('mongoose');
+//const cors = require("cors");
+var app = express();
+
+const productsRoutes = require("./routes/productos");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+//app.use(cors());
 
-mongoose.connect( 
-//conexión a la base de datos
+//conexión a la base de datos con mongoose
+mongoose.connect(
+    "mongodb+srv://dbUser:SBDrrjnO7RC4B1Rm@cluster0.xifqx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  ).then(() => {
+   console.log("Estamos conectados");
+  });
 
-)
+//Definición y organización de rutas
+app.use("/api/productos", productsRoutes);
 
-//crear la colección (tabla)
-const Cat = mongoose.model('Cat', { name: String });
-
-const kitty = new Cat({ name: 'Zildjian' });
-kitty.save().then(() => console.log('meow'));
+//permite llamar al server
+module.exports = app;

@@ -1,38 +1,55 @@
+//AQUI VA TODA LA LÓGICA
+
 const Producto = require("../models/productos");
 
-exports.getProducts =(req, res) =>{
-    Producto.find().then((postResult){
-        //me trae todos los productos postResult
-        res.status(200).json(postResult);
-    })
-};
-
-exports.addProducts = (req, res) =>{
-    const productoAdd = new Producto({
-        nombre: req.body.nombre,
-        marca: req.body.marca,
-        cilindraje: req.body.cilindraje,
-        color: req.body.color,
-        precio: req.body.precio,
-        disponible: req.body.disponible,
-    })
-
-    productoAdd.save().then((createdProduct) =>{
-        console.log(createdProduct);
-        res.status(201).json("Creado con éxito");
+exports.getProducts = (req, res) => {
+  Producto.find()
+    .populate("categoria")
+    .then((productoResult) => {
+      res.status(200).json(productoResult);
     });
 };
 
-exports.getProductId = (req, res) =>{
-    Producto.findById(req.params.id).then((productoResult) => {
-        if(productoResult){
-            res.status(200).json
-        }
-    })
-}
+exports.addProduct = (req, res) => {
+  const productoAdd = new Producto({
+    title: req.body.title,
+    description: req.body.description,
+    price: req.body.price,
+    url: req.body.url,
+    categoria: req.body.categoria,
+    disponible: req.body.disponible,
+  });
 
-//trae los productos disponibles
-exports.getProductoDisponible = (req,res) => {
-    Producto.find({disponible:true});
+  productoAdd.save().then((createdProduct) => {
+    console.log(createdProduct);
+    res.status(201).json("Creado satisfactoriamente");
+  });
+};
+
+exports.getProductId = (req, res) => {
+  Producto.findById(req.params.id).then((productoResult) => {
+    if (productoResult) {
+      res.status(200).json(productoResult);
+    } else {
+      res.status(404).json("Producto no encontrado");
+    }
+  });
+};
+
+exports.getProductIdLazyLoading = (req, res) => {
+  Producto.findById(req.params.id)
+    .populate("categoria")
+    .then((productoResult) => {
+      if (productoResult) {
+        res.status(200).json(productoResult);
+      } else {
+        res.status(404).json("Producto no encontrado");
+      }
+    });
+};
+
+exports.getProductoDisponible = (req, res) => {
+  Producto.find({ disponible: true }).then((productoResult) => {
     res.status(200).json(productoResult);
-}
+  });
+};
