@@ -2,18 +2,10 @@
     background-color: #fff;
     margin-right: auto;
     margin-left: auto;
-    padding: 2rem 15rem;
-    
-    
-   
+    padding: 0rem 15rem;
     min-height:calc(100vh - 200px);
 }
-.ContenedorRP{
-border: 2px solid  rgb(39, 33, 33);
-}
-.imag{
-    height: 50px;
-}
+
 
 h1{
     font-size: 1.25rem;
@@ -75,14 +67,10 @@ select{
     
 }
 .boton button{
-    background-color:#428bca;
+    background-color: #333fff;
     color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 5px;
 
-    
-}
-.boton button:hover{
-    background-color: #428bca;
     
 }

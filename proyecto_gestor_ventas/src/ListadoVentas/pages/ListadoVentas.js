@@ -11,17 +11,17 @@ const ListadoVentas = () => {
         <h1>Listado de Ventas</h1>
     
         <div>
-            <form action="" method="get" class="form-search-date">
+            <form action="" method="get" className="form-search-date">
             <label>Rangos de fechas:</label>
                 <label>De:</label>
-                <div class="buscar">   
+                <div className="buscar">   
                 <input type="date" name="fecha-de" id="fecha-de" required/>
                 </div>
                 <label>A</label> 
-                <div class="buscar"> 
+                <div className="buscar"> 
                 <input type="date" name="fecha-a" id="fecha-a" required/>
                 </div>
-                <button type="submit" class="btn-view"><img src={buscar}/></button>
+                <button type="submit" className="btn-view"><img src={buscar}/></button>
                 
             <label>ID venta:</label>
                 <div class="buscar">
@@ -30,7 +30,7 @@ const ListadoVentas = () => {
                 
             
            
-            <button type="submit" class="btn-view"><img src={buscar}/></button> 
+            <button type="submit" className="btn-view"><img src={buscar}/></button> 
            
             </form>
         </div>
@@ -38,7 +38,7 @@ const ListadoVentas = () => {
 
           
         <div>
-        <table class="tabla1">
+        <table className="tabla1">
             <tr>
                 <th>ID</th>
                 <th>Fecha</th>

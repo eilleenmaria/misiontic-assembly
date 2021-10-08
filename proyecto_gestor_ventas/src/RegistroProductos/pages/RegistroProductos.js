@@ -3,14 +3,15 @@ import "./registroProducto.css";
 
 const RegistroProductos = () => {
 
+
     return (
 
      <div> 
      <main class="main1">
     
-      
+        <div>
         <h1>Registro de producto</h1>             
-            
+        </div>    
         <form >
             <div class="ident">
                 <label for="IDproduc">ID</label>
