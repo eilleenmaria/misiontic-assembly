@@ -3,9 +3,10 @@
 //importar el modelo
 const Producto = require("../models/productos");
 
+//listar productos
 exports.getProducts = (req, res) => {
-  Producto.find().then((postResult) => {
-    res.status(200).json(postResult);
+  Producto.find().then((productoResult) => {
+    res.status(200).json(productoResult);
   })
 };
 
@@ -17,6 +18,7 @@ exports.getProducts = (req, res) => {
 //    });
 //};
 
+//crear productos
 exports.addProduct = (req, res) => {
   const productoAdd = new Producto({
     title: req.body.title,
@@ -34,15 +36,17 @@ exports.addProduct = (req, res) => {
   });
 };
 
-//exports.getProductId = (req, res) => {
-//  Producto.findById(req.params.id).then((productoResult) => {
-//    if (productoResult) {
-//      res.status(200).json(productoResult);
-//    } else {
-//      res.status(404).json("Producto no encontrado");
-//    }
-//  });
-//};
+//listar productos por id
+exports.getProductId = (req, res) => {
+  Producto.findById(req.params.id).then((productoResult) => {
+    if (productoResult) {
+      res.status(200).json(productoResult);
+    } 
+    else {
+      res.status(404).json("Producto no encontrado");
+    }
+  });
+};
 
 //exports.getProductIdLazyLoading = (req, res) => {
 //  Producto.findById(req.params.id)
@@ -56,8 +60,9 @@ exports.addProduct = (req, res) => {
 //    });
 //};
 
-//exports.getProductoDisponible = (req, res) => {
-//  Producto.find({ disponible: true }).then((productoResult) => {
-//    res.status(200).json(productoResult);
-//  });
-//};
+//listar productos disponibles
+exports.getProductoDisponible = (req, res) => {
+  Producto.find({ disponible: true }).then((productoResult) => {
+    res.status(200).json(productoResult);
+  });
+};

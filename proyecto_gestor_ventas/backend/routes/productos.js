@@ -6,13 +6,15 @@ const router = express.Router();
 
 const ProductController = require("../controllers/productos");
 
-//trae los productos
+//lista todos los productos
 router.get("", ProductController.getProducts);
 //crea los productos
 router.post("", ProductController.addProduct);
+//lista los productos disponibles
+router.get("/disponibles", ProductController.getProductoDisponible);
+//lista los productos por id
+router.get("/:id", ProductController.getProductId);
 
-//router.get("/disponibles", ProductController.getProductoDisponible);
 //router.get("/entire/:id", ProductController.getProductIdLazyLoading);
-//router.get("/:id", ProductController.getProductId);
 
 module.exports = router;
