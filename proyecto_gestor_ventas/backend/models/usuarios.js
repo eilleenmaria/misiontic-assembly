@@ -8,4 +8,4 @@ const usuario = mongoose.Schema({
   estado:{ type: String, required: true},
 });
 
-module.exports = mongoose.model("Usuario", usuario);
+module.exports = mongoose.model("usuarios", usuario);

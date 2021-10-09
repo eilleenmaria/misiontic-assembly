@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-const ProductController = require("../controllers/usuarios");
+const UsuarioController = require("../controllers/usuarios");
 
-//trae los productos
+//trae los usuarios
 router.get("", UsuarioController.getUsuario);
-//crea los productos
+//crea los usuarios
 router.post("", UsuarioController.addUsuario);
+//busca los usuarios por id
+router.get("/:id", UsuarioController.getUsuarioId);
 
-//router.get("/disponibles", ProductController.getProductoDisponible);
-//router.get("/entire/:id", ProductController.getProductIdLazyLoading);
-//router.get("/:id", ProductController.getProductId);
 
 module.exports = router;
