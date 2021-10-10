@@ -39,13 +39,13 @@ const Login = () => {
                             </Button>
                     </Col>
                         
-                    <Col>
+                     <Col>
                         <Link to="/RegistroVentas">
                         <Button variant="primary" type="submit">
-                            Invitado
+                            Google
                         </Button>
                         </Link>
-                    </Col>
+                    </Col> 
                 </Row>
             </Container>
             

@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import {BrowserRouter as Router, 
   Route, 
   Switch,
@@ -15,8 +14,24 @@ import ListadoVentas from "./ListadoVentas/pages/ListadoVentas";
 import Login from "./Login/pages/Login";
 import RegistroProductos from "./RegistroProductos/pages/RegistroProductos";
 import RegistroVentas from "./RegistroVentas/pages/NuevaVenta";
+import api from "./api";
+import {useEffect, useState} from "react";
 
-const App = () => {
+
+function App () {
+  const[usuarios, setUsuarios] = useState([]);
+  const[listadop, setListadoP] = useState([]);
+  const[listadov, setListadoV] = useState([]);
+  const[productos, setProductos] = useState([]);
+  const[ventas, setVentas] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () =>{
+      const response = await api.productos.list();
+      setProductos(response);
+    };
+  });
+
   return (
     <Router>
       <Header/>
@@ -25,19 +40,19 @@ const App = () => {
           <Login/>
         </Route>
         <Route path="/GestionUsuarios" exact>
-          <GestionUsuarios/>
+          <GestionUsuarios usuarios={usuarios} setUsuarios={setUsuarios} />
         </Route>
         <Route path="/ListadoProductos" exact>
-          <ListadoProductos/>
+          <ListadoProductos listadop = {listadop} setListadoP={setListadoP}/>
         </Route>
         <Route path="/ListadoVentas" exact>
-          <ListadoVentas/>
+          <ListadoVentas listadov = {listadov} setListadoV={setListadoV}/>
         </Route>
         <Route path="/RegistroProductos" exact>
-          <RegistroProductos/>
+          <RegistroProductos productos = {productos} setProductos={setProductos}/>
         </Route>
         <Route path="/RegistroVentas" exact>
-          <RegistroVentas/>
+          <RegistroVentas ventas = {ventas} setVentas={setVentas} />
         </Route>
         
         <Redirect to="/"/>
@@ -45,6 +60,6 @@ const App = () => {
       <Footer/>
    </Router>
   );
-}
+};
 
 export default App;

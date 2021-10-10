@@ -1,60 +1,112 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import "./registroProducto.css";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { Container, Row, Col } from "react-bootstrap";
 
-const RegistroProductos = () => {
+import api from "../../api";
 
+const RegistroProductos = ({productos, setProductos}) => {
+    
+const [newProduct, setNewProduct] = useState({
+    title: "",
+    marca: "",
+    modelo: 0,
+    cilindraje: 0,
+    categoria: "",
+    disponible: false,
+    valorUnitario: 0,
+});
+
+const handleChange = (event) => {
+    setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
+    console.log(newProduct);
+  };
+
+  const handleClick = () => {
+    setProductos([...productos, newProduct]);
+  };
 
     return (
 
-     <div> 
-     <main class="main1">
-    
-        <div>
-        <h1>Registro de producto</h1>             
-        </div>    
-        <form >
-            <div class="ident">
-                <label for="IDproduc">ID</label>
-                <input type="text" class="id" id="IDproduct"/> 
-            </div>
+<React.Fragment>
+      <h1 className="text-center mt-5 mb-5">Crear producto</h1>
+      <Container>
+        <Row className="d-flex justify-content-center align-items-center">
+          <Col xs={6}>
+            <Form>
+              <Form.Group className="mb-3">
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="nombre"
+                  onChange={handleChange}
+                />
+              </Form.Group>
 
-            <div class="ident">
-                <label for="produc" >PRODUCTO</label>
-                <input type="text" id="produc"/>
-            </div>
+              <Form.Group className="mb-3">
+                <Form.Label>Marca</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="marca"
+                  onChange={handleChange}
+                />
+              </Form.Group>
 
-            <div class="ident">
-                <label for="descrip" >DESCRIPCION</label>
-                <input type="text" id="descproduc"/>
-            </div>
+              <Form.Group className="mb-3">
+                <Form.Label>Cilindraje</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="cilindraje"
+                  onChange={handleChange}
+                />
+              </Form.Group>
 
-            <div class="ident">
-                <label for="valorunit" >VALOR UNITARIO</label>
-                <input type="text" class="id" id="valorunit"/>
-            </div>
-            
-            <div class="ident">
-                <label>ESTADO</label>
-                <select class="seleccion">
-                    <option selected disabled>Seleccione una opcion</option>                
-                    <option>Disponible</option>
-                    <option>No disponible</option>
-                </select>
-            </div>
+              <Form.Group className="mb-3">
+                <Form.Label>Categoria</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="categoria"
+                  onChange={handleChange}
+                />
+              </Form.Group>
 
-            <div class="boton">
-                <button>Agregar Producto</button>
-                
+              <Form.Group className="mb-3">
+                <Form.Label>Valor Unitario ($)</Form.Label>
+                <Form.Control
+                  type="number"
+                  name="valorUnitario"
+                  onChange={handleChange}
+                />
+              </Form.Group>
 
-            </div>
-            
-            
-        </form>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Check
+                  type="checkbox"
+                  id="default-checkbox"
+                  label="Disponible"
+                  name="disponible"
+                  onChange={handleChange}
+                />
+              </Form.Group>
 
+              <Button type="primary" variant="outline-secondary">
+                Cancelar
+              </Button>
+              <Button
+                onClick={handleClick}
+                type="button"
+                variant="primary"
+                className="float-end"
+              >
+                Guardar
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+    </React.Fragment>
 
-</main> 
-
-        </div>
     )
    
 };
