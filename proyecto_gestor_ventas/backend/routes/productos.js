@@ -14,6 +14,8 @@ router.post("", ProductController.addProduct);
 router.get("/disponibles", ProductController.getProductoDisponible);
 //lista los productos por id
 router.get("/:id", ProductController.getProductId);
+//eliminar producto por id
+router.delete("/:delete", ProductController.deleteProduct);
 
 //router.get("/entire/:id", ProductController.getProductIdLazyLoading);
 
