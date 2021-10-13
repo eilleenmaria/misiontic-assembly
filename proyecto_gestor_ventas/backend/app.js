@@ -6,6 +6,7 @@ var app = express();
 
 const productsRoutes = require("./routes/productos");
 const usuarioRoutes = require("./routes/usuarios");
+const ventaRoutes = require("./routes/ventas");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
@@ -20,6 +21,7 @@ mongoose.connect(
 //Definición y organización de rutas
 app.use("/api/productos", productsRoutes);
 app.use("/api/usuarios", usuarioRoutes);
+app.use("/api/ventas", ventaRoutes);
 
 //permite llamar al server
 module.exports = app;

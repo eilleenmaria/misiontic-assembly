@@ -9,6 +9,9 @@ router.get("", UsuarioController.getUsuario);
 router.post("", UsuarioController.addUsuario);
 //busca los usuarios por id
 router.get("/:id", UsuarioController.getUsuarioId);
+//actualizar los usuarios por id
+router.put("/:id", UsuarioController.updateUsuario);
+//router.get("/rol", UsuarioController.getUsuarioVendedor);
 
 
 module.exports = router;

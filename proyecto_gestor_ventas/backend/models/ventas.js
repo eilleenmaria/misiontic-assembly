@@ -15,5 +15,3 @@ const venta = mongoose.Schema({
 
 
 module.exports = mongoose.model("ventas", venta);
-
-

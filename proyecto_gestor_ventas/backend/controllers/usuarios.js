@@ -33,3 +33,41 @@ exports.addUsuario = (req, res) => {
   });
 };
 
+//actualizar usuario
+exports.updateUsuario = (req, res) => {
+
+  const updateObjectUsuario = {
+
+      $set: {}
+
+  };
+
+  if(req.body.rol) {
+
+      updateObjectUsuario['$set']['rol'] = req.body.rol;
+
+  }
+  
+  if(req.body.estado) {
+
+    updateObjectUsuario['$set']['estado'] = req.body.estado;
+
+}
+
+  Usuario.updateOne({id: req.body.id}, updateObjectUsuario).then((usuarioUpdate) => {
+    if (usuarioUpdate) {
+      res.status(200).json(usuarioUpdate);
+    } 
+    else {
+      res.status(404).json("Usuario  no encontrado");
+    }
+
+  })
+}
+
+// exports.getUsuarioVendedor = (req, res) => {
+//   Producto.find({ rol: "vendedor" }).then((usuarioResult) => {
+//     res.status(200).json(usuariioResult);
+//   });
+// };
+
