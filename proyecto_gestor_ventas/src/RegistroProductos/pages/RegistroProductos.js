@@ -5,9 +5,11 @@ import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-bootstrap";
 
 import api from "../../api";
+import {useHistory} from "react-router-dom";
 
 const RegistroProductos = ({productos, setProductos}) => {
-    
+  const history=useHistory();
+
 const [newProduct, setNewProduct] = useState({
     title: "",
     marca: "",
@@ -24,7 +26,10 @@ const handleChange = (event) => {
   };
 
   const handleClick = () => {
+    //llamada de la api con el método post
+    api.productos.create(newProduct);
     setProductos([...productos, newProduct]);
+    history.push("/ListadoProductos");
   };
 
     return (
@@ -39,7 +44,7 @@ const handleChange = (event) => {
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
                   type="text"
-                  name="nombre"
+                  name="title"
                   onChange={handleChange}
                 />
               </Form.Group>

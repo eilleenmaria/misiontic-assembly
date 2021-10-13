@@ -66,3 +66,16 @@ exports.getProductoDisponible = (req, res) => {
     res.status(200).json(productoResult);
   });
 };
+
+
+//eliminar productos por id
+exports.deleteProduct = (req, res) => {
+  Producto.deleteOne(req.params.id).then((productoResult) => {
+    if (productoResult) {
+      res.status(200).json(productoResult);
+    } 
+    else {
+      res.status(404).json("Producto no eliminado");
+    }
+  });
+};

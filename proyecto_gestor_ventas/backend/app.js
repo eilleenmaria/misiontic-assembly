@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-//conexión a la base de datos con mongoose
+//conexión a la base de datos en MongoDB con mongoose
 mongoose.connect(
     "mongodb+srv://dbUser:SBDrrjnO7RC4B1Rm@cluster0.xifqx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
   ).then(() => {
