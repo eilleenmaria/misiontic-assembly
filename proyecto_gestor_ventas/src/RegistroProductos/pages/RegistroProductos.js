@@ -2,13 +2,13 @@ import React, {useState, useEffect} from 'react';
 import "./registroProducto.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 
 import api from "../../api";
 import {useHistory} from "react-router-dom";
 
 const RegistroProductos = ({productos, setProductos}) => {
-  const history=useHistory();
+const history=useHistory();
 
 const [newProduct, setNewProduct] = useState({
     title: "",
@@ -20,16 +20,23 @@ const [newProduct, setNewProduct] = useState({
     valorUnitario: 0,
 });
 
+
+
+
 const handleChange = (event) => {
     setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
-    console.log(newProduct);
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
     //llamada de la api con el método post
-    api.productos.create(newProduct);
-    setProductos([...productos, newProduct]);
-    history.push("/ListadoProductos");
+    const apiResponse = await api.products.create(newProduct);
+      if(apiResponse.err){
+        console.log(apiResponse.err);
+      }
+      else{
+        setProductos([...productos, newProduct]);
+        history.push("/ListadoProductos");
+      }
   };
 
     return (
@@ -39,6 +46,7 @@ const handleChange = (event) => {
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
           <Col xs={6}>
+            <Alert variant={'danger'}></Alert>
             <Form>
               <Form.Group className="mb-3">
                 <Form.Label>Nombre</Form.Label>
@@ -59,9 +67,18 @@ const handleChange = (event) => {
               </Form.Group>
 
               <Form.Group className="mb-3">
+                <Form.Label>Modelo</Form.Label>
+                <Form.Control
+                  type="number"
+                  name="modelo"
+                  onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
                 <Form.Label>Cilindraje</Form.Label>
                 <Form.Control
-                  type="text"
+                  type="number"
                   name="cilindraje"
                   onChange={handleChange}
                 />
@@ -91,6 +108,7 @@ const handleChange = (event) => {
                   id="default-checkbox"
                   label="Disponible"
                   name="disponible"
+                  value="true"
                   onChange={handleChange}
                 />
               </Form.Group>
