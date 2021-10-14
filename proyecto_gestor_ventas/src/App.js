@@ -20,17 +20,18 @@ import {useEffect, useState} from "react";
 
 function App () {
   const[usuarios, setUsuarios] = useState([]);
-  const[listadop, setListadoP] = useState([]);
   const[listadov, setListadoV] = useState([]);
   const[productos, setProductos] = useState([]);
   const[ventas, setVentas] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () =>{
-      const response = await api.productos.list();
+    const fetchData = async () => {
+      const response = await api.products.list();
       setProductos(response);
     };
-  });
+
+    fetchData();
+  }, []);
 
   return (
     <Router>
@@ -43,7 +44,7 @@ function App () {
           <GestionUsuarios usuarios={usuarios} setUsuarios={setUsuarios} />
         </Route>
         <Route path="/ListadoProductos" exact>
-          <ListadoProductos listadop = {listadop} setListadoP={setListadoP}/>
+          <ListadoProductos productos = {productos} />
         </Route>
         <Route path="/ListadoVentas" exact>
           <ListadoVentas listadov = {listadov} setListadoV={setListadoV}/>
