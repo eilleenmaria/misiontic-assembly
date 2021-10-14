@@ -33,7 +33,7 @@ exports.addProduct = (req, res) => {
   productoAdd.save().then((createdProduct) => {
     res.status(201).json("Creado satisfactoriamente");
   }).catch((error) => {
-    res.satus(500).json({err: error});
+    res.status(500).json({err: error});
   });
 };
 

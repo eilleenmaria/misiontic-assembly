@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from "react";
 import "./registroProducto.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -8,20 +8,19 @@ import api from "../../api";
 import {useHistory} from "react-router-dom";
 
 const RegistroProductos = ({productos, setProductos}) => {
-const history=useHistory();
+  const history=useHistory();
+  const [error, setError] = useState();
+  const [success, setSuccess] = useState();
 
-const [newProduct, setNewProduct] = useState({
-    title: "",
-    marca: "",
-    modelo: 0,
-    cilindraje: 0,
-    categoria: "",
-    disponible: false,
-    valorUnitario: 0,
-});
-
-
-
+  const [newProduct, setNewProduct] = useState({
+      title: "",
+      marca: "",
+      modelo: 0,
+      cilindraje: 0,
+      categoria: "",
+      disponible: false,
+      valorUnitario: 0,
+  });
 
 const handleChange = (event) => {
     setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
@@ -31,22 +30,24 @@ const handleChange = (event) => {
     //llamada de la api con el método post
     const apiResponse = await api.products.create(newProduct);
       if(apiResponse.err){
+        setError(apiResponse.err.message);
         console.log(apiResponse.err);
       }
       else{
+        setSuccess(apiResponse);
         setProductos([...productos, newProduct]);
-        history.push("/ListadoProductos");
+        //history.push("/ListadoProductos");
       }
   };
 
     return (
 
 <React.Fragment>
-      <h1 className="text-center mt-5 mb-5">Crear producto</h1>
+      <h1 className="text-center mt-5">Crear producto</h1>
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
           <Col xs={6}>
-            <Alert variant={'danger'}></Alert>
+            
             <Form>
               <Form.Group className="mb-3">
                 <Form.Label>Nombre</Form.Label>
@@ -125,6 +126,11 @@ const handleChange = (event) => {
                 Guardar
               </Button>
             </Form>
+            <h1></h1>
+            <Row className="justify-content-center">
+            {error && <Alert variant="danger">{error}</Alert>}
+            {success && <Alert variant="success">{success}</Alert>}
+            </Row>
           </Col>
         </Row>
       </Container>
