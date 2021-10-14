@@ -7,9 +7,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import GoogleLogin from 'react-google-login';
 
 const Login = () => {
-
+    const respuestagoogle=(respuesta)=>{
+        console.log(respuesta);
+    }
     return (
     <div className="ContenedorLogin" > 
         
@@ -39,10 +42,16 @@ const Login = () => {
                             </Button>
                     </Col>
                         
-                     <Col>
-                        <Link to="/RegistroVentas">
+                    <Col>
+                        <Link to="/RegistroVentas/NuevaVenta.js">
                         <Button variant="primary" type="submit">
-                            Google
+                            <GoogleLogin
+                                clientId="259222515228-4k1npqmdsjma08llqni1vj68rhriicgo.apps.googleusercontent.com"
+                                buttonText="Inicio de Sesion"
+                                onSuccess={respuestagoogle}
+                                onFailure={respuestagoogle}
+                                cookiePolicy={'single_host_origin'}
+                            />
                         </Button>
                         </Link>
                     </Col> 
