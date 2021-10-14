@@ -44,15 +44,13 @@ const Login = () => {
                         
                     <Col>
                         <Link to="/RegistroVentas/NuevaVenta.js">
-                        <Button variant="primary" type="submit">
                             <GoogleLogin
                                 clientId="259222515228-4k1npqmdsjma08llqni1vj68rhriicgo.apps.googleusercontent.com"
-                                buttonText="Inicio de Sesion"
+                                buttonText="Ingresar"
                                 onSuccess={respuestagoogle}
                                 onFailure={respuestagoogle}
                                 cookiePolicy={'single_host_origin'}
                             />
-                        </Button>
                         </Link>
                     </Col> 
                 </Row>
