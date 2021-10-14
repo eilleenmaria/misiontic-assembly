@@ -10,14 +10,6 @@ exports.getProducts = (req, res) => {
   })
 };
 
-//exports.getProducts = (req, res) => {
-//  Producto.find()
-//    .populate("categoria")
-//    .then((productoResult) => {
-//      res.status(200).json(productoResult);
-//    });
-//};
-
 //crear productos
 exports.addProduct = (req, res) => {
   const productoAdd = new Producto({

@@ -5,10 +5,10 @@ import Form from "react-bootstrap/Form";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 
 import api from "../../api";
-import {useHistory} from "react-router-dom";
+//import {useHistory} from "react-router-dom";
 
 const RegistroProductos = ({productos, setProductos}) => {
-  const history=useHistory();
+  //const history=useHistory();
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
 
