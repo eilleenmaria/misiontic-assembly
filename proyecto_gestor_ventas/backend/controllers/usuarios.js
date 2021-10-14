@@ -65,9 +65,9 @@ exports.updateUsuario = (req, res) => {
   })
 }
 
-// exports.getUsuarioVendedor = (req, res) => {
-//   Producto.find({ rol: "vendedor" }).then((usuarioResult) => {
-//     res.status(200).json(usuariioResult);
-//   });
-// };
+//  exports.getUsuarioVendedor = (req, res) => {
+//   Usuario.find({ rol: "vendedor" }).then((usuarioResult) => {
+//      res.status(200).json(usuarioResult);
+//    });
+//  };
 
