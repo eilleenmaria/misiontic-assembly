@@ -60,7 +60,7 @@ exports.getProductoDisponible = (req, res) => {
   });
 };
 
-//remover producto
+//eliminar producto
 exports.deleteProducto = (req, res) => {
   const id = req.params.id;
 
@@ -79,6 +79,28 @@ exports.deleteProducto = (req, res) => {
   })
   };*/
 
+
+//editar producto  
+exports.editProduct = (req, res) => {
+  const id = req.params.id;
+
+  const productoUpd = new Producto({
+    _id: id,
+    title: req.body.title,
+    marca: req.body.marca,
+    cilindraje: req.body.cilindrajece,
+    categoria: req.body.categoria,
+    disponible: req.body.disponible,
+    valorUnitario: req.body.valorUnitario,
+  });
+  console.log(productoUpd);
+
+  Producto.findByIdAndUpdate(id, productoUpd).then((productoResult) => {
+    res.status(200).json("Producto actualizado satisfactoriamente");
+  });
+};
+
+/*
 //actualizar producto
 exports.updateProducto = (req, res) => {
 
@@ -132,7 +154,7 @@ if(req.body.valorUnitario) {
 
   })
 }
-
+*/
 
 //eliminar productos por id
 // exports.deleteProduct = (req, res) => {

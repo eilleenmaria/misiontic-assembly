@@ -26,6 +26,15 @@ const api = {
                 method: "DELETE",
             });
         },
+        edit(producto) {
+            return callApi(`/productos/${producto._id}`, {
+              method: "PUT",
+              body: JSON.stringify(producto),
+            });
+        },
+        getProduct(id) {
+            return callApi(`/productos/${id}`);
+        },
     },
     ventas: {
         list() {

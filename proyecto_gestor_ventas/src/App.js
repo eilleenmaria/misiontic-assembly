@@ -14,6 +14,7 @@ import ListadoVentas from "./ListadoVentas/pages/ListadoVentas";
 import Login from "./Login/pages/Login";
 import RegistroProductos from "./RegistroProductos/pages/RegistroProductos";
 import RegistroVentas from "./RegistroVentas/pages/NuevaVenta";
+import EditarProducto from "./ListadoProductos/pages/EditarProducto";
 import api from "./api";
 import {useEffect, useState} from "react";
 
@@ -49,10 +50,13 @@ function App () {
           <GestionUsuarios usuarios={usuarios} setUsuarios={setUsuarios} />
         </Route>
         <Route path="/ListadoProductos" exact>
-          <ListadoProductos productos = {productos} />
+          <ListadoProductos productos = {productos} setProductos={setProductos}/>
         </Route>
         <Route path="/ListadoVentas" exact>
           <ListadoVentas listadov = {listadov} setListadoV={setListadoV}/>
+        </Route>
+        <Route path="/ListadoProductos/Edit/:productId" exact>
+          <EditarProducto productos={productos} setProductos={setProductos} />
         </Route>
         <Route path="/RegistroProductos" exact>
           <RegistroProductos productos = {productos} setProductos={setProductos}/>
