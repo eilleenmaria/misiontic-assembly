@@ -27,6 +27,18 @@ const api = {
             });
         },
     },
+    ventas: {
+        list() {
+            return callApi("/ventas");
+        },
+        create(venta) {
+            console.log(JSON.stringify(venta));
+            return callApi("/ventas", {
+                method: "POST", 
+                body: JSON.stringify(venta),
+            });
+        },
+    },
 };
 
 export default api;

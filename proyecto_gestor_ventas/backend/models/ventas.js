@@ -6,6 +6,7 @@ const venta = mongoose.Schema({
   idCliente: { type: String, required: true  },
   fechaPago: { type: Date, required: true},
   idProducto: { type: String, required: true},
+  producto: { type: String, required: true},
   marca: { type: String, required: true},
   modelo: { type: String, required: true},
   cantidad: { type: Number, required: true},
