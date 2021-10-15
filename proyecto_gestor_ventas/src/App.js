@@ -29,8 +29,13 @@ function App () {
       const response = await api.products.list();
       setProductos(response);
     };
+    const fetchVentas = async () => {
+      const response = await api.ventas.list();
+      setVentas(response);
+    };
 
     fetchData();
+    fetchVentas();
   }, []);
 
   return (
@@ -53,7 +58,7 @@ function App () {
           <RegistroProductos productos = {productos} setProductos={setProductos}/>
         </Route>
         <Route path="/RegistroVentas" exact>
-          <RegistroVentas ventas = {ventas} setVentas={setVentas} />
+          <RegistroVentas ventas = {ventas} setVentas={setVentas} productos = {productos} />
         </Route>
         
         <Redirect to="/"/>

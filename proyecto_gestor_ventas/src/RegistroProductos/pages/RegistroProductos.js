@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import "./registroProducto.css";
+
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col, Alert } from "react-bootstrap";

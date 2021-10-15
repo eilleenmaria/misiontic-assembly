@@ -1,159 +1,162 @@
-import React from 'react'
-import "../../styles/styles.css"
+import React, {useState, useEffect} from "react";
 
-const NuevaVenta = () => {
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { Container,Table, Row, Col, Alert } from "react-bootstrap";
+
+import api from "../../api";
+//import {useHistory} from "react-router-dom";
+
+const NuevaVenta = ({ventas, setVentas,productos}) => {
+  //const history=useHistory();
+  const [error, setError] = useState();
+  const [success, setSuccess] = useState();
+
+  const [newVenta, setNewVenta] = useState({
+    nombreVendedor: "",
+    nombreCliente: "",
+    idCliente: "",
+    producto: "",
+    fechaPago: 0 ,
+    idProducto: 0,
+    marca: "",
+    modelo: "" ,
+    cantidad: "",
+    precioUnitario: 0,
+    valorTotal:  0,
+  });
+
+const handleChange = (event) => {
+    setNewVenta({ ...newVenta, [event.target.name]: event.target.value });
+  };
+
+  const handleClick = async () => {
+    //llamada de la api con el método post
+    const apiResponse = await api.ventas.create(newVenta);
+      if(apiResponse.err){
+        setError(apiResponse.err.message);
+        console.log(apiResponse.err);
+      }
+      else{
+        setSuccess(apiResponse);
+        setVentas([...ventas, newVenta]);
+        //history.push("/ListadoVentas");
+      }
+  };
+  
+  
+
     return (
-        <div>
-          
-            <main class="mainContainer">
 
-                <div class="contenedor-titulo">
-                    <h1 class="titulo">Registro nueva venta</h1>
-                </div>
-                <div class="contenedor-span">
-                    <span class="spanTexto">Nombre Vendedor+ID</span>
-                    <div class="buscar">
-                        <input id="inputBuscar" placeholder="Cliente" />
-                        <i class="fas fa-search botonGenerico iconoBusqueda"></i>
-                    </div>
-                    <div class="contenedor-fechas">
+<React.Fragment>
+<h1 className="text-center mt-5">Registrar Ventas</h1>
+      
+      <Form>
+  <Row>
+    <Col>
+      <Form.Control type="text" name="nombreVendedor" onChange={handleChange}
+       placeholder="Nombre Vendedor" />
+    </Col>
+    <Col>
+      <Form.Control type="text" name="nombreCliente" onChange={handleChange}
+      placeholder="Nombre Cliente" />
+    </Col>
+  </Row>
+</Form>
+<Form>
+  <Row>
+    <Col xs={3}>
+      <Form.Control type="text" name="idCliente" onChange={handleChange}
+       placeholder="Id Cliente" />
+    </Col>
+    <Col>
+      <Form.Control type="date" name="fechaPago" onChange={handleChange}
+       placeholder="Fecha de pago" />
+    </Col>
+    <Col>
+      <Form.Control type="text" name="_id" onChange={handleChange}
+      placeholder="Id Venta" />
+    </Col>
+    
+    <Col>
+      <Form.Control type="text" name="valorTotal" onChange={handleChange}
+      placeholder="Valor Total" />
+    </Col>
+  </Row>
+</Form>
 
-                        <label for="fechaDePago" class="fechaPago">Fecha de Pago  </label>
-                        <input type="date" class="InputfechaDePago" id="fechaDePago" />
-
-                    </div>
-                    <span class="spanTexto">Número de venta BD</span>
-                </div>
-
-
-                <div class="contenedorAgregarProducto">
-                    <div class="buscar">
-                        <input id="inputBuscar" placeholder="Buscar un producto" />
-                        <i class="fas fa-search botonGenerico iconoBusqueda"></i>
-                    </div>
-                    <div class="cantidad">
-                        <input placeholder="Cantidad" />
-                    </div>
-                    <div class="btnAgregarProducto bg-blue-500">
-                        <button class="btnAgregar">Agregar</button>
-                    </div>
-                </div>
-
-                <div class="table w-full p-2">
-                    <table class="w-full border">
-                        <thead>
-                            <tr class="bg-gray-50 border-b">
-                                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div class="flex items-center justify-center">
-                                        ID producto
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                        </svg>
-                                    </div>
-                                </th>
-                                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div class="flex items-center justify-center">
-                                        Producto
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                        </svg>
-                                    </div>
-                                </th>
-                                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div class="flex items-center justify-center">
-                                        Valor Unitario ($)
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                        </svg>
-                                    </div>
-                                </th>
-                                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div class="flex items-center justify-center">
-                                        Cantidad
-
-                                    </div>
-                                </th>
-
-                                <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div class="flex items-center justify-center">
-                                        Opción
-
-                                    </div>
-                                </th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                <td class="p-2 border-r">1</td>
-                                <td class="p-2 border-r">Producto1</td>
-                                <td class="p-2 border-r">123.455</td>
-                                <td class="p-2 border-r">2</td>
-                                <td>
-                                    <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                <td class="p-2 border-r">2</td>
-                                <td class="p-2 border-r">Producto2</td>
-                                <td class="p-2 border-r">10.395</td>
-                                <td class="p-2 border-r">1</td>
-                                <td>
-                                    <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                <td class="p-2 border-r">3</td>
-                                <td class="p-2 border-r">Producto3</td>
-                                <td class="p-2 border-r">47.582</td>
-                                <td class="p-2 border-r">3</td>
-                                <td>
-                                    <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                <td class="p-2 border-r">4</td>
-                                <td class="p-2 border-r">Producto4</td>
-                                <td class="p-2 border-r">58.980</td>
-                                <td class="p-2 border-r">4</td>
-                                <td>
-                                    <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                <td class="p-2 border-r">5</td>
-                                <td class="p-2 border-r">Producto5</td>
-                                <td class="p-2 border-r">236.471</td>
-                                <td class="p-2 border-r">12</td>
-                                <td>
-                                    <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="contenedorValorTotal-Guardar">
-                    <div class="valorTotal">
-                        <label for="valorTotal" class="LabelvalorTotal">Valor Total ($)</label>
-                        <input type="text" class="InputValorTotal" name="valorTotal" id="valorTotal" readonly />
-                        <button class="BtnGuardar">Guardar</button>
-                    </div>
-
-
-                </div>
-
-            </main>
-            
-
-        </div>
-    )
-}
-
-export default NuevaVenta
+<Form>
+  <Row>
+    <Col xs={3}>
+      <Form.Control type="text" name="idproducto" onChange={handleChange}
+       placeholder="Buscar producto" />
+    </Col>
+    <Col xs={3}>
+      <Form.Control type="text" name="cantidad" onChange={handleChange}
+       placeholder="cantidad" />
+    </Col>
+    <Col>
+       <Button //onClick={12}
+                type="button"
+                variant="primary"
+                // id={producto._id}
+                >Agregar</Button>{' '}
+    </Col>
+    
+     </Row>
+</Form>
+<Container>
+<Table striped bordered hover>
+  <thead>
+    <tr>
+      <th>id Producto</th>
+      <th>Producto</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Precio Unitario</th>
+      <th>Cantidad</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  {productos.map((producto) => {
+              return (
+    <tr Key={producto._id}>
+      <td name= "idProducto">{producto._id}</td> 
+      <td name= "producto">{producto.title}</td>  
+      <td name="marca">{producto.marca}</td>
+      <td name = "modelo">{producto.modelo}</td>
+      <td name= "valorUnitario">{producto.valorUnitario}</td>
+      <td name= "cantidad"></td>
+    </tr>
+    );
+})}
+  </tbody>
+</Table>
+<Row >
+    <Col>
+<Button type="primary" variant="outline-secondary">
+                Cancelar
+              </Button>
+    </Col>
+    <Col>
+              <Button
+    
+                onClick={handleClick}
+                type="button"
+                variant="primary"
+                className="float-end"
+              >
+                Guardar
+              </Button>
+    </Col>
+</Row>
+<Row className="justify-content-center">
+    {error && <Alert variant="danger">{error}</Alert>}
+    {success && <Alert variant="success">{success}</Alert>}
+</Row>
+</Container>
+</React.Fragment>
+    )   
+};
+export default NuevaVenta;

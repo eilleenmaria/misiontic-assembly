@@ -14,6 +14,7 @@ exports.addVenta = (req, res) => {
       idCliente: req.body.idCliente,
       fechaPago: req.body.fechaPago,
       idProducto: req.body.idProducto,
+      producto: req.body.nombre,
       marca: req.body.marca,
       modelo: req.body.modelo,
       cantidad: req.body.cantidad,
