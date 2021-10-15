@@ -43,7 +43,7 @@ const handleChange = (event) => {
     return (
 
 <React.Fragment>
-      <h1 className="text-center mt-5">Crear producto</h1>
+      <h3 className="text-center mt-5">Registro de productos</h3>
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
           <Col xs={6}>

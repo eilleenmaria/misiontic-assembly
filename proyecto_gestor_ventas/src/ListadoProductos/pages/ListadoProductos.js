@@ -14,7 +14,7 @@ const ListadoProductos = ({productos}) => {
 return( 
 
     <div>
-      <h1 className="text-center mt-5 mb-5">Listado de productos</h1>
+      <h3 className="text-center mt-5 mb-5">Listado de productos</h3>
       <Container>
         <Table striped bordered hover>
           <thead>

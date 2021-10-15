@@ -13,11 +13,11 @@ const GestionUsuarios = () => {
             <main className="form-signin--md" center>  
                 <form className="row g-3 border" center>
                     <div>
-                        <h1> 
+                        <h3 className="text-center mt-5"> 
                             <center>
                             Gestión de Usuarios
                             </center>
-                        </h1>
+                        </h3>
 
                     </div>
                     <div>

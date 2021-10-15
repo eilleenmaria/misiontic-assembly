@@ -18,8 +18,8 @@ const Login = () => {
         
         <main className="form-signin">
 
-        <p class="text-center h5">Ingreso en Assembly</p>
-
+        <h3 className="text-center mt-5">Ingreso Assembly</h3>
+        
         <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Usuario</Form.Label>

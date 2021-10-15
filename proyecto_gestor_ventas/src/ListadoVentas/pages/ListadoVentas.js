@@ -8,7 +8,7 @@ const ListadoVentas = () => {
 
     return (
         <main id="container">
-        <h1>Listado de Ventas</h1>
+        <h3 className="text-center mt-5">Listado de Ventas</h3>
     
         <div>
             <form action="" method="get" className="form-search-date">

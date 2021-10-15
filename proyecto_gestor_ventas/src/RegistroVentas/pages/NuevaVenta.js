@@ -47,9 +47,9 @@ const handleChange = (event) => {
   
 
     return (
-
+ <main>
 <React.Fragment>
-<h1 className="text-center mt-5">Registrar Ventas</h1>
+<h3 className="text-center mt-5">Registro de Ventas</h3>
       
       <Form>
   <Row>
@@ -157,6 +157,7 @@ const handleChange = (event) => {
 </Row>
 </Container>
 </React.Fragment>
+</main>
     )   
 };
 export default NuevaVenta;
