@@ -59,8 +59,16 @@ exports.getProductoDisponible = (req, res) => {
     res.status(200).json(productoResult);
   });
 };
+
 //remover producto
 exports.deleteProducto = (req, res) => {
+  const id = req.params.id;
+
+  Producto.deleteOne({_id: id}).then((productoResult) => {
+    res.status(200).json("Producto eliminado satisfactoriamente");
+  });
+}; 
+  /*
   Producto.findByIdAndRemove(req.params.id).then((productoRemove) =>{
     if (productoRemove) {
       res.status(200).json(productoRemove);
@@ -69,7 +77,8 @@ exports.deleteProducto = (req, res) => {
       res.status(404).json("Producto  no removido");
     }
   })
-  };
+  };*/
+
 //actualizar producto
 exports.updateProducto = (req, res) => {
 
