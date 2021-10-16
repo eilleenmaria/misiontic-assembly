@@ -26,11 +26,9 @@ return(
               <th>Vendedor</th>
               <th>Cliente</th>
               <th>Fecha de Venta</th>
-              <th>Valor total</th>            
+              <th>Valor total ($)</th>            
               <th>Estado</th>
               <th>Acción</th>
-
-              
             </tr>
           </thead>
           <tbody>
@@ -41,24 +39,13 @@ return(
                   <td>{venta.nombreVendedor}</td>
                   <td>{venta.nombreCliente}</td>
                   <td>{venta.fechaPago}</td>
-                  <td>{venta.valorTotal}</td>  
-                                                                             
-                  <td>
-                    <input
-                      type="checkbox"
-                      className="custom-control-input text-center"
-                      id="customCheck1"
-                      checked={venta.disponible}
-                      readOnly
-                    />{" "}
-                  </td>
+                  <td>{venta.valorTotal}</td>
+                  <td>{venta.disponible}</td>                                
+                  
                   <td>
                   <Link to={`/ListadoVentas/Edit/${venta._id}`}>
                     <Button
                       variant="warning"
-                      //onClick={popProduct}
-                      //id={producto._id}
-                      //className="ms-2"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

@@ -8,6 +8,7 @@ import api from '../../api';
 const ListadoProductos = ({productos, setProductos}) => { 
   const deleteProducto = (event) => {
     const id = event.target.id;
+
     api.products.delete(id);
     console.log(productos);
     const newProducts = productos.filter((producto) => producto._id !== id);

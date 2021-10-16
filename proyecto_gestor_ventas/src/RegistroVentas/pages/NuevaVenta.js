@@ -46,12 +46,15 @@ const handleChange = (event) => {
     return (
   <React.Fragment>
       <h3 className="text-center mt-5">Registro de ventas</h3>
+       
       <Container>
-        <Row className="d-flex justify-content-center align-items-center">
+      <Row className="d-flex justify-content-center align-items-center">
           <Col xs={6}>
             
             <Form>
+            <h1></h1>
               <Form.Group className="mb-3">
+              
                 <Form.Label>Nombre Vendedor</Form.Label>
                 <Form.Control
                   type="text" name="nombreVendedor" onChange={handleChange}
@@ -74,7 +77,7 @@ const handleChange = (event) => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Fecha de pago</Form.Label>
+                <Form.Label>Fecha de venta</Form.Label>
                 <Form.Control
                   type="date" name="fechaPago" onChange={handleChange}
                 />
@@ -113,17 +116,18 @@ const handleChange = (event) => {
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Precio Unitario</Form.Label>
+                <Form.Label>Valor Unitario ($)</Form.Label>
                 <Form.Control
                   type="number" name="precioUnitario" onChange={handleChange}
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Valor Total</Form.Label>
+                <Form.Label>Valor Total ($)</Form.Label>
                 <Form.Control
                   type="number" name="valorTotal" onChange={handleChange}
                 />
               </Form.Group>
+
               <Form.Select  xs={3} aria-label="Floating label select example">
                 <option name="estado">Seleccione Estado de venta</option>
                 <option >En proceso</option>
@@ -131,7 +135,8 @@ const handleChange = (event) => {
                 <option >Cancelada</option>
               </Form.Select>
               
-
+              <h1></h1>
+              
               <Button type="primary" variant="outline-secondary">
                 Cancelar
               </Button>
@@ -143,8 +148,9 @@ const handleChange = (event) => {
               >
                 Guardar
               </Button>
+              
             </Form>
-            <h1></h1>
+            
             <Row className="justify-content-center">
             {error && <Alert variant="danger">{error}</Alert>}
             {success && <Alert variant="success">{success}</Alert>}

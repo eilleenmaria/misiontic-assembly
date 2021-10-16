@@ -55,19 +55,18 @@ const VentasForm = ({ handleChange, handleClick, formValue }) => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Check
-          type="checkbox"
-          id="default-checkbox"
-          label="Disponible"
-          name="disponible"
-          value={formValue.title || "true"}
+      <Form.Group className="mb-3">
+        <Form.Label>Estado</Form.Label>
+        <Form.Control
+          type="text"
+          name="estado"
           onChange={handleChange}
+          value={formValue.estado}
         />
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Accion</Form.Label>
+        <Form.Label>Acción</Form.Label>
         <Form.Control
           type="text"
           name="accion"
