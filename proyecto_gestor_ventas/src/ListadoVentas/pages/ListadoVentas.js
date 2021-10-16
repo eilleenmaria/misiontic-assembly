@@ -5,13 +5,13 @@ import { Container, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from '../../api';
 
-const ListadoVentas = ({productos, setProductos}) => { 
-  const deleteVentas = (event) => {
+const ListadoVentas = ({ventas, setVentas}) => { 
+  const deleteVenta = (event) => {
     const id = event.target.id;
     api.ventas.delete(id);
     console.log(ventas);
     const newVenta = ventas.filter((venta) => venta._id !== id);
-    setProductos([...newVenta]);
+    setVentas([...newVenta]);
 };
 
 return( 
@@ -26,26 +26,28 @@ return(
               <th>Vendedor</th>
               <th>Cliente</th>
               <th>Fecha de Venta</th>
-              <th>Valor total</th>
+              <th>Valor total</th>            
               <th>Estado</th>
               <th>Acción</th>
+
+              
             </tr>
           </thead>
           <tbody>
             {ventas.map((venta) => {
               return (
                 <tr className="text-center" key={venta._id}>
-                  <td>{venta.title}</td>
-                  <td>{venta.marca}</td>
-                  <td>{venta.modelo}</td>
-                  <td>{venta.cilindraje}</td>
-                  <td>{venta.categoria}</td>
+                  <td>{venta._id}</td>
+                  <td>{venta.nombreVendedor}</td>
+                  <td>{venta.nombreCliente}</td>
+                  <td>{venta.fechaPago}</td>
+                  <td>{venta.valorTotal}</td>                                                             
                   <td>
                     <input
                       type="checkbox"
                       className="custom-control-input text-center"
                       id="customCheck1"
-                      checked={producto.disponible}
+                      checked={venta.disponible}
                       readOnly
                     />{" "}
                   </td>
@@ -73,7 +75,7 @@ return(
                     <Button
                       variant="danger"
                       onClick={deleteVenta}
-                      id={producto._id}
+                      id={venta._id}
                       className="ms-2"
                     >
                       <svg

@@ -53,7 +53,7 @@ function App () {
           <ListadoProductos productos = {productos} setProductos={setProductos}/>
         </Route>
         <Route path="/ListadoVentas" exact>
-          <ListadoVentas listadov = {listadov} setListadoV={setListadoV}/>
+          <ListadoVentas ventas = {ventas} setVentas={setVentas}/>
         </Route>
         <Route path="/ListadoProductos/Edit/:productId" exact>
           <EditarProducto productos={productos} setProductos={setProductos} />
