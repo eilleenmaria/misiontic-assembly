@@ -41,7 +41,8 @@ return(
                   <td>{venta.nombreVendedor}</td>
                   <td>{venta.nombreCliente}</td>
                   <td>{venta.fechaPago}</td>
-                  <td>{venta.valorTotal}</td>                                                             
+                  <td>{venta.valorTotal}</td>  
+                                                                             
                   <td>
                     <input
                       type="checkbox"

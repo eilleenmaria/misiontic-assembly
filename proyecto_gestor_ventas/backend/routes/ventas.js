@@ -3,17 +3,16 @@ const router = express.Router();
 
 const VentaController = require("../controllers/ventas");
 
-//trae los usuarios
+//lista todos las ventas
 router.get("", VentaController.getVenta);
-//crea los usuarios
+//crea las ventas
 router.post("", VentaController.addVenta);
-//busca los usuarios por id
+//busca los ventas por id
 router.get("/:id", VentaController.getVentaId);
-//busca los usuarios por id
+//Actualizar Venta
 router.put("/:id", VentaController.editVenta);
-//busca los usuarios por id
+//Remover Venta
 router.delete("/:id", VentaController.deleteVenta);
-
 
 
 module.exports = router;
