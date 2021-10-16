@@ -62,7 +62,7 @@ function App () {
           <RegistroProductos productos = {productos} setProductos={setProductos}/>
         </Route>
         <Route path="/RegistroVentas" exact>
-          <RegistroVentas ventas = {ventas} setVentas={setVentas} productos = {productos} />
+          <RegistroVentas ventas = {ventas} setVentas={setVentas} />
         </Route>
         
         <Redirect to="/"/>

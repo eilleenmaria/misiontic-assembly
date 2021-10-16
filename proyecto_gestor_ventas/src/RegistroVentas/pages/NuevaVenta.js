@@ -2,12 +2,12 @@ import React, {useState, useEffect} from "react";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Container,Table, Row, Col, Alert } from "react-bootstrap";
+import { Container,Table, Row, Col, Alert, FloatingLabel } from "react-bootstrap";
 
 import api from "../../api";
 //import {useHistory} from "react-router-dom";
 
-const NuevaVenta = ({ventas, setVentas,productos}) => {
+const NuevaVenta = ({ventas, setVentas}) => {
   //const history=useHistory();
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
@@ -21,7 +21,7 @@ const NuevaVenta = ({ventas, setVentas,productos}) => {
     idProducto: 0,
     marca: "",
     modelo: "" ,
-    cantidad: "",
+    cantidad: 0,
     precioUnitario: 0,
     valorTotal:  0,
   });
@@ -43,105 +43,93 @@ const handleChange = (event) => {
         //history.push("/ListadoVentas");
       }
   };
-  
-  
-
     return (
- <main>
-<React.Fragment>
-<h3 className="text-center mt-5">Registro de Ventas</h3>
-      
-      <Form>
-  <Row>
-    <Col>
-      <Form.Control type="text" name="nombreVendedor" onChange={handleChange}
-       placeholder="Nombre Vendedor" />
-    </Col>
-    <Col>
-      <Form.Control type="text" name="nombreCliente" onChange={handleChange}
-      placeholder="Nombre Cliente" />
-    </Col>
-  </Row>
-</Form>
-<Form>
-  <Row>
-    <Col xs={3}>
-      <Form.Control type="text" name="idCliente" onChange={handleChange}
-       placeholder="Id Cliente" />
-    </Col>
-    <Col>
-      <Form.Control type="date" name="fechaPago" onChange={handleChange}
-       placeholder="Fecha de pago" />
-    </Col>
-    <Col>
-      <Form.Control type="text" name="_id" onChange={handleChange}
-      placeholder="Id Venta" />
-    </Col>
-    
-    <Col>
-      <Form.Control type="text" name="valorTotal" onChange={handleChange}
-      placeholder="Valor Total" />
-    </Col>
-  </Row>
-</Form>
+  <React.Fragment>
+      <h3 className="text-center mt-5">Registro de ventas</h3>
+      <Container>
+        <Row className="d-flex justify-content-center align-items-center">
+          <Col xs={6}>
+            
+            <Form>
+              <Form.Group className="mb-3">
+                <Form.Label>Nombre Vendedor</Form.Label>
+                <Form.Control
+                  type="text" name="nombreVendedor" onChange={handleChange}
+                  
+                />
+              </Form.Group>
 
-<Form>
-  <Row>
-    <Col xs={3}>
-      <Form.Control type="text" name="idproducto" onChange={handleChange}
-       placeholder="Buscar producto" />
-    </Col>
-    <Col xs={3}>
-      <Form.Control type="text" name="cantidad" onChange={handleChange}
-       placeholder="cantidad" />
-    </Col>
-    <Col>
-       <Button //onClick={12}
-                type="button"
-                variant="primary"
-                // id={producto._id}
-                >Agregar</Button>{' '}
-    </Col>
-    
-     </Row>
-</Form>
-<Container>
-<Table striped bordered hover>
-  <thead>
-    <tr>
-      <th>id Producto</th>
-      <th>Producto</th>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>Precio Unitario</th>
-      <th>Cantidad</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-  {productos.map((producto) => {
-              return (
-    <tr Key={producto._id}>
-      <td name= "idProducto">{producto._id}</td> 
-      <td name= "producto">{producto.title}</td>  
-      <td name="marca">{producto.marca}</td>
-      <td name = "modelo">{producto.modelo}</td>
-      <td name= "valorUnitario">{producto.valorUnitario}</td>
-      <td name= "cantidad"></td>
-    </tr>
-    );
-})}
-  </tbody>
-</Table>
-<Row >
-    <Col>
-<Button type="primary" variant="outline-secondary">
+              <Form.Group className="mb-3">
+                <Form.Label>Nombre Cliente</Form.Label>
+                <Form.Control
+                  type="text" name="nombreCliente" onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Id Cliente</Form.Label>
+                <Form.Control
+                  type="text" name="idCliente" onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Fecha de pago</Form.Label>
+                <Form.Control
+                  type="date" name="fechaPago" onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Id Producto</Form.Label>
+                <Form.Control
+                  type="text" name="idProductos" onChange={handleChange}
+                />
+              </Form.Group>
+              
+              <Form.Group className="mb-3">
+                <Form.Label>Producto</Form.Label>
+                <Form.Control
+                  type="text" name="productos" onChange={handleChange}
+                />
+              </Form.Group>
+          
+              <Form.Group className="mb-3">
+                <Form.Label>Marca</Form.Label>
+                <Form.Control
+                  type="text" name="marca" onChange={handleChange}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Modelo</Form.Label>
+                <Form.Control
+                  type="text" name="modelo" onChange={handleChange}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Cantidad</Form.Label>
+                <Form.Control
+                  type="number" name="cantidad" onChange={handleChange}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Precio Unitario</Form.Label>
+                <Form.Control
+                  type="number" name="precioUnitario" onChange={handleChange}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Valor Total</Form.Label>
+                <Form.Control
+                  type="number" name="valorTotal" onChange={handleChange}
+                />
+              </Form.Group>
+              
+
+              <Button type="primary" variant="outline-secondary">
                 Cancelar
               </Button>
-    </Col>
-    <Col>
               <Button
-    
                 onClick={handleClick}
                 type="button"
                 variant="primary"
@@ -149,15 +137,22 @@ const handleChange = (event) => {
               >
                 Guardar
               </Button>
-    </Col>
-</Row>
-<Row className="justify-content-center">
-    {error && <Alert variant="danger">{error}</Alert>}
-    {success && <Alert variant="success">{success}</Alert>}
-</Row>
-</Container>
-</React.Fragment>
-</main>
-    )   
+            </Form>
+            <h1></h1>
+            <Row className="justify-content-center">
+            {error && <Alert variant="danger">{error}</Alert>}
+            {success && <Alert variant="success">{success}</Alert>}
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </React.Fragment>
+
+    )
+   
 };
+
 export default NuevaVenta;
+  
+
+    

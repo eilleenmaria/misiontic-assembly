@@ -48,6 +48,9 @@ const api = {
             });
         },
     },
+        getVentas(id) {
+            return callApi(`/ventas/${id}`);
+        },
 };
 
 export default api;
