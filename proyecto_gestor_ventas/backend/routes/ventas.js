@@ -9,6 +9,10 @@ router.get("", VentaController.getVenta);
 router.post("", VentaController.addVenta);
 //busca los usuarios por id
 router.get("/:id", VentaController.getVentaId);
+//busca los usuarios por id
+router.put("/:id", VentaController.editVenta);
+//busca los usuarios por id
+router.delete("/:id", VentaController.deleteVenta);
 
 
 

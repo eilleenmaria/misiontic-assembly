@@ -37,4 +37,39 @@ exports.getVentaId = (req, res) => {
         res.status(404).json("Usuario no encontrado");
       }
     });
+};
+//editar venta  
+exports.editVenta = (req, res) => {
+  console.log("Editado");
+  const id = req.params.id;
+
+  const ventasUpd = new Venta({
+    _id: id,
+      nombreVendedor: req.body.nombreVendedor,
+      nombreCliente: req.body.nombreCliente,
+      idCliente: req.body.idCliente,
+      fechaPago: req.body.fechaPago,
+      idProductos: req.body.idProductos,
+      productos: req.body.productos,
+      marca: req.body.marca,
+      modelo: req.body.modelo,
+      cantidad: req.body.cantidad,
+      precioUnitario: req.body.precioUnitario,
+      valorTotal: req.body.valorTotal,
+      estado: req.body.estado,
+  });
+  console.log(ventasUpd);
+
+  Venta.findByIdAndUpdate(id, ventasUpd).then((productoResult) => {
+    res.status(200).json("Venta actualizada satisfactoriamente");
+  });
   };
+  //eliminar venta
+exports.deleteVenta = (req, res) => {
+  console.log("Eliminado");
+  const id = req.params.id;
+
+  Venta.deleteOne({_id: id}).then((productoResult) => {
+    res.status(200).json("Producto eliminado satisfactoriamente");
+  });
+}; 

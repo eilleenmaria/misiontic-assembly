@@ -47,10 +47,24 @@ const api = {
                 body: JSON.stringify(venta),
             });
         },
-    },
+    
         getVentas(id) {
             return callApi(`/ventas/${id}`);
         },
+        edit(venta) {
+            return callApi(`/ventas/${venta._id}`, {
+              method: "PUT",
+              body: JSON.stringify(venta),
+            });
+        },
+        delete(id){
+            return callApi(`/ventas/${id}`, {
+                method: "DELETE",
+            });
+        },
+
+    },
+   
 };
 
 export default api;

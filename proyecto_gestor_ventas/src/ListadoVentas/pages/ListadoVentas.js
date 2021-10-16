@@ -1,90 +1,106 @@
-import React from 'react';
-import "./listadoventas.css";
-import eliminar from './eliminar.png';
-import editar from './editar.png';
-import buscar from './buscar.png';
+import Form from 'react-bootstrap/Form';
+//import "../../styles/styles.css"
 
-const ListadoVentas = () => {
+import { Container, Table, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import api from '../../api';
 
-    return (
-        <main id="container">
-        <h3 className="text-center mt-5">Listado de Ventas</h3>
-    
-        <div>
-            <form action="" method="get" className="form-search-date">
-            <label>Rangos de fechas:</label>
-                <label>De:</label>
-                <div className="buscar">   
-                <input type="date" name="fecha-de" id="fecha-de" required/>
-                </div>
-                <label>A</label> 
-                <div className="buscar"> 
-                <input type="date" name="fecha-a" id="fecha-a" required/>
-                </div>
-                <button type="submit" className="btn-view"><img src={buscar}/></button>
-                
-            <label>ID venta:</label>
-                <div class="buscar">
-                <input type="text" id="inputBuscar" placeholder="Ingrese el ID " />  
-                </div>
-                
-            
-           
-            <button type="submit" className="btn-view"><img src={buscar}/></button> 
-           
-            </form>
-        </div>
+const ListadoVentas = ({productos, setProductos}) => { 
+  const deleteVentas = (event) => {
+    const id = event.target.id;
+    api.ventas.delete(id);
+    console.log(ventas);
+    const newVenta = ventas.filter((venta) => venta._id !== id);
+    setProductos([...newVenta]);
+};
 
+return( 
 
-          
-        <div>
-        <table className="tabla1">
-            <tr>
-                <th>ID</th>
-                <th>Fecha</th>
-                <th>Cliente</th>
-                <th>Vendedor</th>
-                <th>Estado</th>
-                <th class="textrigth">Total Factura</th>
-                <th class="textright">Acciones</th>           
-            </tr>        
-                
-            <tr>
-                <td>1</td>
-                <td>2022-10-01</td>
-                <td>Melanyn Grces</td>
-                <td>Pedro Perez</td>
-                <td>En proceso</td>
-                <td>$200.000</td>
-                <td>
-                    <button class="btn-edit-venta">< img src={editar}/></button> 
-                    <button class="btn-delete-venta">< img src={eliminar}/></button> 
-                    
-                </td>
-               
+    <div>
+      <h3 className="text-center mt-5 mb-5">Listado de ventas</h3>
+      <Container>
+        <Table striped bordered hover>
+          <thead>
+            <tr className="text-center">
+              <th>Id</th>
+              <th>Vendedor</th>
+              <th>Cliente</th>
+              <th>Fecha de Venta</th>
+              <th>Valor total</th>
+              <th>Estado</th>
+              <th>Acción</th>
             </tr>
+          </thead>
+          <tbody>
+            {ventas.map((venta) => {
+              return (
+                <tr className="text-center" key={venta._id}>
+                  <td>{venta.title}</td>
+                  <td>{venta.marca}</td>
+                  <td>{venta.modelo}</td>
+                  <td>{venta.cilindraje}</td>
+                  <td>{venta.categoria}</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      className="custom-control-input text-center"
+                      id="customCheck1"
+                      checked={producto.disponible}
+                      readOnly
+                    />{" "}
+                  </td>
+                  <td>
+                  <Link to={`/ListadoVentas/Edit/${venta._id}`}>
+                    <Button
+                      variant="warning"
+                      //onClick={popProduct}
+                      //id={producto._id}
+                      //className="ms-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-pencil"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                      </svg>
+                    </Button>
+                    </Link>
 
-            
-        </table>
-        </div>
-
-        <div class="paginador flex items-center justify-center">
-            <ul>
-                <li><a href="#">|&lt;</a></li>
-                <li><a href="#">|&lt;&lt;</a></li>
-                <li class="pageSelected">1</li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;|</a></li>
-                <li><a href="#">&gt;&gt;|</a></li>
-            </ul>
-        </div>
-    </main>
-        
-    )
-
-} 
+                    <Button
+                      variant="danger"
+                      onClick={deleteVenta}
+                      id={producto._id}
+                      className="ms-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-trash"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                        <path
+                          fillRule="evenodd"
+                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                        />
+                      </svg>
+                    </Button>
+                    
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      </Container>
+    </div>
+)
+};
 
 export default ListadoVentas;

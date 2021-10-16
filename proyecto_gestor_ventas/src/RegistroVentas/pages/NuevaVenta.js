@@ -124,6 +124,12 @@ const handleChange = (event) => {
                   type="number" name="valorTotal" onChange={handleChange}
                 />
               </Form.Group>
+              <Form.Select  xs={3} aria-label="Floating label select example">
+                <option name="estado">Seleccione Estado de venta</option>
+                <option >En proceso</option>
+                <option >Entregada</option>
+                <option >Cancelada</option>
+              </Form.Select>
               
 
               <Button type="primary" variant="outline-secondary">
