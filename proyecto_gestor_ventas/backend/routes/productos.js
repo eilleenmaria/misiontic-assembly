@@ -12,9 +12,9 @@ router.get("", ProductController.getProducts);
 router.post("", ProductController.addProduct);
 //lista los productos disponibles
 router.get("/disponibles", ProductController.getProductoDisponible);
-//remover producto por id
+//remover producto
 router.delete("/:id", ProductController.deleteProducto);
-//actualizar producto por id
+//actualizar producto
 router.put("/:id", ProductController.editProduct);
 //buscar producto por id
 router.get("/:id", ProductController.getProductId);

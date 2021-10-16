@@ -12,12 +12,8 @@ const EditarProducto = ({ productos, setProductos }) => {
 
   const [newProduct, setNewProduct] = useState({
     title: "",
-    marca: "",
-    modelo: 0,
-    cilindraje: 0,
-    categoria: "",
     disponible: false,
-    valorUnitario: 0,
+    valorUnitario: "",
   });
 
   useEffect(() => {
@@ -47,7 +43,7 @@ const EditarProducto = ({ productos, setProductos }) => {
 
   return (
     <React.Fragment>
-      <h3 className="text-center mt-5 mb-5">Editar producto</h3>
+      <h3 className="text-center mt-5 mb-5">Editar productos</h3>
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
           <Col xs={6}>

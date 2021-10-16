@@ -4,7 +4,8 @@ import Button from "react-bootstrap/Button";
 const ProductForm = ({ handleChange, handleClick, formValue }) => {
   return (
     <Form>
-      <Form.Group className="mb-3">
+
+     <Form.Group className="mb-3">
         <Form.Label>Nombre</Form.Label>
         <Form.Control
           type="text"
@@ -17,9 +18,8 @@ const ProductForm = ({ handleChange, handleClick, formValue }) => {
       <Form.Group className="mb-3">
         <Form.Label>Marca</Form.Label>
         <Form.Control
-          as="text"
+          type="text"
           name="marca"
-          style={{ height: "50px" }}
           onChange={handleChange}
           value={formValue.marca}
         />
@@ -28,23 +28,32 @@ const ProductForm = ({ handleChange, handleClick, formValue }) => {
       <Form.Group className="mb-3">
         <Form.Label>Modelo</Form.Label>
         <Form.Control
-          as="number"
+          type="number"
           name="modelo"
-          style={{ height: "50px" }}
           onChange={handleChange}
           value={formValue.modelo}
         />
-    |  </Form.Group>
+      </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Cilindraje</Form.Label>
         <Form.Control
-          as="number"
+          type="number"
           name="cilindraje"
-          style={{ height: "50px" }}
           onChange={handleChange}
           value={formValue.cilindraje}
         />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Categoria</Form.Label>
+        <Form.Control
+          type="text"
+          name="categoria"
+          onChange={handleChange}
+          value={formValue.categoria}
+        />
+      </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Check
@@ -57,7 +66,7 @@ const ProductForm = ({ handleChange, handleClick, formValue }) => {
         />
       </Form.Group>
 
-      </Form.Group>
+      
       <Form.Group className="mb-3">
         <Form.Label>Valor Unitario ($)</Form.Label>
         <Form.Control
