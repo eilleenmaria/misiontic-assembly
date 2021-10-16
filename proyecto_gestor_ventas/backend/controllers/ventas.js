@@ -56,7 +56,7 @@ exports.editVenta = (req, res) => {
       cantidad: req.body.cantidad,
       precioUnitario: req.body.precioUnitario,
       valorTotal: req.body.valorTotal,
-      estado: req.body.estado,
+      // estado: req.body.estado,
   });
   console.log(ventasUpd);
 

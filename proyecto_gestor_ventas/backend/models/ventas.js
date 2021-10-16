@@ -12,7 +12,7 @@ const venta = mongoose.Schema({
   cantidad: { type: Number, required: true},
   precioUnitario: { type: Number, required: true},
   valorTotal: { type: Number, required:true}, 
-  estado : { type: String, required:true},
+  // estado : { type: String, required:true},
 });
 
 
