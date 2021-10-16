@@ -27,7 +27,7 @@ return(
               <th>Cliente</th>
               <th>Fecha de Venta</th>
               <th>Valor total ($)</th>            
-              <th>Estado</th>
+              
               <th>Acción</th>
             </tr>
           </thead>
@@ -40,7 +40,7 @@ return(
                   <td>{venta.nombreCliente}</td>
                   <td>{venta.fechaPago}</td>
                   <td>{venta.valorTotal}</td>
-                  <td>{venta.disponible}</td>                                
+                                                 
                   
                   <td>
                   <Link to={`/ListadoVentas/Edit/${venta._id}`}>

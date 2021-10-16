@@ -15,6 +15,8 @@ import Login from "./Login/pages/Login";
 import RegistroProductos from "./RegistroProductos/pages/RegistroProductos";
 import RegistroVentas from "./RegistroVentas/pages/NuevaVenta";
 import EditarProducto from "./ListadoProductos/pages/EditarProducto";
+import EditarVenta from "./ListadoVentas/pages/EditarVenta";
+
 import api from "./api";
 import {useEffect, useState} from "react";
 
@@ -57,6 +59,9 @@ function App () {
         </Route>
         <Route path="/ListadoProductos/Edit/:productId" exact>
           <EditarProducto productos={productos} setProductos={setProductos} />
+        </Route>
+        <Route path="/ListadoVentas/Edit/:ventaId" exact>
+          <EditarVenta ventas = {ventas} setVentas={setVentas}/>
         </Route>
         <Route path="/RegistroProductos" exact>
           <RegistroProductos productos = {productos} setProductos={setProductos}/>

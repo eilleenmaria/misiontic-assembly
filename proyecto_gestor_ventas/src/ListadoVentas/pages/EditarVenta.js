@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import api from "../../api";
-import ProductForm from "../components/VentasForm";
+import VentasForm from "../components/VentasForm";
 
 const EditarVenta = ({ ventas, setVentas }) => {
   const history = useHistory();
@@ -11,14 +11,16 @@ const EditarVenta = ({ ventas, setVentas }) => {
   const { ventaId } = useParams();
 
   const [newVenta, setNewVenta] = useState({
-    title: "",
-    disponible: false,
-    valorUnitario: "",
+    id: "",
+    nonmbreVendedor: "",
+    nonmbreCliente: "",
+    fechaPago: "",
+    valorTotal: "",
   });
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await api.products.getProduct(ventaId);
+      const response = await api.ventas.getVentas(ventaId);
       setNewVenta(response);
     };
 
@@ -30,7 +32,7 @@ const EditarVenta = ({ ventas, setVentas }) => {
   };
 
   const handleClick = async () => {
-    const apiResponse = await api.products.edit(newVenta);
+    const apiResponse = await api.ventas.edit(newVenta);
     if (apiResponse.err) {
       setError(apiResponse.err.message);
       console.log(apiResponse.err);
@@ -49,7 +51,7 @@ const EditarVenta = ({ ventas, setVentas }) => {
           <Col xs={6}>
             {error && <Alert variant="danger">{error}</Alert>}
             {success && <Alert variant="success">{success}</Alert>}
-            <ProductForm
+            <VentasForm
               handleChange={handleChange}
               handleClick={handleClick}
               formValue={newVenta}

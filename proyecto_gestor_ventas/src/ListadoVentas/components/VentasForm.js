@@ -5,23 +5,15 @@ const VentasForm = ({ handleChange, handleClick, formValue }) => {
   return (
     <Form>
 
-     <Form.Group className="mb-3">
-        <Form.Label>_id</Form.Label>
-        <Form.Control
-          type="number"
-          name="id"
-          onChange={handleChange}
-          value={formValue._id}
-        />
-     </Form.Group>
+
 
      <Form.Group className="mb-3">
         <Form.Label>Vendedor</Form.Label>
         <Form.Control
           type="text"
-          name="title"
+          name="nombreVendedor"
           onChange={handleChange}
-          value={formValue.title}
+          value={formValue.nombreVendedor}
         />
       </Form.Group>
 
@@ -29,9 +21,9 @@ const VentasForm = ({ handleChange, handleClick, formValue }) => {
         <Form.Label>Cliente</Form.Label>
         <Form.Control
           type="text"
-          name="cliente"
+          name="nombreCliente"
           onChange={handleChange}
-          value={formValue.cliente}
+          value={formValue.nombreCliente}
         />
       </Form.Group>
 
@@ -54,27 +46,6 @@ const VentasForm = ({ handleChange, handleClick, formValue }) => {
           value={formValue.valorTotal}
         />
       </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Form.Label>Estado</Form.Label>
-        <Form.Control
-          type="text"
-          name="estado"
-          onChange={handleChange}
-          value={formValue.estado}
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Form.Label>Acción</Form.Label>
-        <Form.Control
-          type="text"
-          name="accion"
-          onChange={handleChange}
-          value={formValue.accion}
-        />
-      </Form.Group>   
-      
 
       <Button type="button" variant="outline-secondary">
         Cancelar
