@@ -35,3 +35,10 @@ main {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.img{
+  max-width: 50%;
+  margin: auto;
+  max-width: 600px;
+  
+}

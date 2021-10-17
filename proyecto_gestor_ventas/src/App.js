@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, 
   Route, 
   Switch,
   Redirect,
 } from "react-router-dom";
-
+import React from "react";
 import Footer from "./Shared/components/Footer";
 import Header from "./Shared/components/Header";
 import GestionUsuarios from "./GestionUsuarios/pages/GestionUsuarios";
@@ -23,7 +22,7 @@ import {useEffect, useState} from "react";
 
 function App () {
   const[usuarios, setUsuarios] = useState([]);
-  const[listadov, setListadoV] = useState([]);
+  const[logged, setLogged] = useState([false]);
   const[productos, setProductos] = useState([]);
   const[ventas, setVentas] = useState([]);
 
@@ -41,12 +40,27 @@ function App () {
     fetchVentas();
   }, []);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token === null) {
+      setLogged(false);
+    } else {
+      setLogged(true);
+    }
+  }, []);
+
   return (
     <Router>
-      <Header/>
+      <Header
+      isLoggedIn={logged}
+      login={setLogged}
+      />
       <Switch>
         <Route path="/" exact>
-          <Login/>
+          <Login
+          isLoggedIn={logged}
+          />
         </Route>
         <Route path="/GestionUsuarios" exact>
           <GestionUsuarios usuarios={usuarios} setUsuarios={setUsuarios} />
