@@ -29,34 +29,17 @@ const GestionUsuarios = () => {
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formnomusuario">
-                                        <Form.Label>Usuario</Form.Label>
+                                        <Form.Label>Nombres</Form.Label>
                                         <Form.Control type="text" placeholder="Usuario" />
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formClave">
-                                        <Form.Label>Clave</Form.Label>
+                                        <Form.Label>Contraseña</Form.Label>
                                         <Form.Control type="text" placeholder="Clave" />
                                     </Form.Group>
                                 </Row>
 
-                                <Form.Group className="mb-3" controlId="formNombres">
-                                    <Form.Label>Nombres y Apellidos</Form.Label>
-                                    <Form.Control placeholder="Ingrese Nombres y Apellidos" />
-                                </Form.Group>
-
                                 <Row className="mb-3">
-                                    <Form.Group as={Col} controlId="formdep">
-                                        <Form.Label>Dependencia</Form.Label>
-                                        <Form.Select defaultValue="Seleccione...">
-                                            <option>Gerencia</option>
-                                            <option>Ventas</option>
-                                            <option>Almacen</option>
-                                            <option>Despachos</option>
-                                            <option>Recepcion</option>
-                                            <option>Comercializacion</option>
-                                        </Form.Select>
-                                    </Form.Group>
-
                                     <Form.Group as={Col} controlId="formrol">
                                         <Form.Label>Rol</Form.Label>
                                         <Form.Select defaultValue="Seleccione...">
