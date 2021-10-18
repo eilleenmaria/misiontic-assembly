@@ -40,6 +40,13 @@ const GestionUsuarios = () => {
                                 </Row>
 
                                 <Row className="mb-3">
+                                    <Form.Group as={Col} controlId="formemail">
+                                            <Form.Label>Correo Electronico</Form.Label>
+                                            <Form.Control type="text" placeholder="Correo electronico" />
+                                        </Form.Group>
+                                </Row>
+
+                                <Row className="mb-3">
                                     <Form.Group as={Col} controlId="formrol">
                                         <Form.Label>Rol</Form.Label>
                                         <Form.Select defaultValue="Seleccione...">
