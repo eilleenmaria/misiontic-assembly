@@ -36,6 +36,32 @@ const api = {
             return callApi(`/productos/${id}`);
         },
     },
+    usuarios: {
+        list() {
+            return callApi("/usuarios");
+        },
+        create(usuario) {
+            console.log(JSON.stringify(usuario));
+            return callApi("/usuarios", {
+                method: "POST", 
+                body: JSON.stringify(usuario),
+            });
+        },
+        delete(id){
+            return callApi(`/usuarios/${id}`, {
+                method: "DELETE",
+            });
+        },
+        edit(usuario) {
+            return callApi(`/productos/${usuario._id}`, {
+              method: "PUT",
+              body: JSON.stringify(usuario),
+            });
+        },
+        getUsuarios(id) {
+            return callApi(`/usuarios/${id}`);
+        },
+    },
     ventas: {
         list() {
             return callApi("/ventas");

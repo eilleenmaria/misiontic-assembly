@@ -1,15 +1,46 @@
-import React from 'react';
-import {Link} from "react-router-dom";
+import React, {useState, useEffect} from "react";
+// import {Link} from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 //import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
 
-const GestionUsuarios = () => {
-    return (
-        <div className="ContenedorLogin justify-content-md-center" center>   
+import Card from 'react-bootstrap/Card';
+import { Row, Col, Alert } from "react-bootstrap";
+import api from "../../api";
+
+const GestionUsuarios = ({usuarios, setUsuarios}) => {
+   
+    const [error, setError] = useState();
+    const [success, setSuccess] = useState();
+
+    const [newUsuario, setNewUsuario] = useState({
+        usuario: "",
+        clave: "",
+        nombre: "",
+        email: "",
+        rol: "",
+        estado:"",
+    });
+    const handleChange = (event) => {
+        setNewUsuario({ ...newUsuario, [event.target.name]: event.target.value });
+      };
+    
+      const handleClick = async () => {
+        //llamada de la api con el método post
+        const apiResponse = await api.usuarios.create(newUsuario);
+          if(apiResponse.err){
+            setError(apiResponse.err.message);
+            console.log(apiResponse.err);
+          }
+          else{
+            setSuccess(apiResponse);
+            setUsuarios([...usuarios, newUsuario]);
+            //history.push("/ListadoProductos");
+          }
+      };
+      return (
+      <React.Fragment>
+                 <div className="ContenedorLogin justify-content-md-center" center>   
             <main className="form-signin--md" center>  
                 <form className="row g-3 border" center>
                     <div>
@@ -23,33 +54,38 @@ const GestionUsuarios = () => {
                     <div>
                             <Form>
                                 <Row className="mb-3">
-                                    <Form.Group as={Col} controlId="formIdUsuario">
-                                        <Form.Label>Id Usuario</Form.Label>
-                                        <Form.Control type="text" placeholder="Ingrese Id" />
-                                    </Form.Group>
-
-                                    <Form.Group as={Col} controlId="formnomusuario">
-                                        <Form.Label>Nombres</Form.Label>
-                                        <Form.Control type="text" placeholder="Usuario" />
+                                        <Form.Group as={Col} controlId="formnomusuario">
+                                        <Form.Label>Usuario</Form.Label>
+                                        <Form.Control type="text" name ="usuario" 
+                                         onChange={handleChange} placeholder="Usuario" />
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formClave">
-                                        <Form.Label>Contraseña</Form.Label>
-                                        <Form.Control type="text" placeholder="Clave" />
+                                        <Form.Label>Clave</Form.Label>
+                                        <Form.Control type="text" name ="clave" 
+                                         onChange={handleChange} placeholder="Clave" />
                                     </Form.Group>
                                 </Row>
 
-                                <Row className="mb-3">
-                                    <Form.Group as={Col} controlId="formemail">
-                                            <Form.Label>Correo Electronico</Form.Label>
-                                            <Form.Control type="text" placeholder="Correo electronico" />
-                                        </Form.Group>
-                                </Row>
+                                <Form.Group className="mb-3" controlId="formNombres">
+                                    <Form.Label>Nombre</Form.Label>
+                                    <Form.Control type= "text" name = "nombre" 
+                                     onChange={handleChange} placeholder="Ingrese Nombres y Apellidos" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formNombres">
+                                    <Form.Label>E mail</Form.Label>
+                                    <Form.Control type= "text" name = "email"
+                                     onChange={handleChange} placeholder="Ingrese email" />
+                                </Form.Group>
+
 
                                 <Row className="mb-3">
-                                    <Form.Group as={Col} controlId="formrol">
+                                    
+
+                                    <Form.Group  as={Col} controlId="formrol">
                                         <Form.Label>Rol</Form.Label>
-                                        <Form.Select defaultValue="Seleccione...">
+                                        <Form.Select type= "text" name = "rol"  onChange={handleChange} 
+                                        defaultValue="Seleccione...">
                                             <option>Administrador</option>
                                             <option>Vendedor</option>
                                         </Form.Select>
@@ -57,7 +93,8 @@ const GestionUsuarios = () => {
 
                                     <Form.Group as={Col} controlId="formestado">
                                         <Form.Label>Estado</Form.Label>
-                                        <Form.Select defaultValue="Seleccione...">
+                                        <Form.Select type= "text" name = "estado"  onChange={handleChange} 
+                                        defaultValue="Seleccione...">
                                             <option>Pendiente</option>
                                             <option>Autorizado</option>
                                             <option>No Autorizado</option>
@@ -66,10 +103,15 @@ const GestionUsuarios = () => {
                                 </Row>
                                 <center>
                                 <Button variant="primary">Nuevo</Button>{' '}
-                                <Button variant="primary">Guardar</Button>{' '}
+                                <Button onClick={handleClick} type="button"variant="primary">Guardar</Button>{' '}
                                 <Button variant="primary">Modificar</Button>{' '}
                                 <Button variant="primary">Eliminar</Button>{' '}
                                 </center>
+                                <h1></h1>
+            <Row className="justify-content-center">
+            {error && <Alert variant="danger">{error}</Alert>}
+            {success && <Alert variant="success">{success}</Alert>}
+            </Row>
 
                             </Form>
 
@@ -77,6 +119,9 @@ const GestionUsuarios = () => {
                 </form>
             </main>
         </div>
+        </React.Fragment>
      )
     };
 export default GestionUsuarios;
+
+        

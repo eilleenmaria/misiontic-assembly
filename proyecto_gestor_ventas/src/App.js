@@ -35,9 +35,14 @@ function App () {
       const response = await api.ventas.list();
       setVentas(response);
     };
+    const fetchUsuarios = async () => {
+      const response = await api.usuarios.list();
+      setVentas(response);
+    };
 
     fetchData();
     fetchVentas();
+    fetchUsuarios();
   }, []);
 
   useEffect(() => {
