@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
-//import "../../styles/styles.css"
+import "./ListadoProductos.css";
 
-import { Container, Table, Button } from "react-bootstrap";
+import { Container, Table, Button, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from '../../api';
 
@@ -15,10 +15,22 @@ const ListadoProductos = ({productos, setProductos}) => {
     setProductos([...newProducts]);
 };
 
-return( 
-
+return(
     <div>
-      <h3 className="text-center mt-5 mb-5">Listado de productos</h3>
+      <h3 className=" form.control text-center mt-5 mb-5">Listado de productos</h3>
+      <div>
+      <Row className="justify-content-center align-items-center">
+        <Form.Label column="lg" lg={3}>
+          Buscador de productos:
+        </Form.Label>
+        <Col xs={5}>
+          <Form.Control type="text" placeholder="Ingrese Id, nombre, marca u otro criterio de búsqueda"  />
+        </Col>
+      </Row>
+      </div>
+
+      <h1></h1>
+      
       <Container>
         <Table striped bordered hover>
           <thead>
