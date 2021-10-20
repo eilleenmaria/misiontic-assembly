@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
 //import "../../styles/styles.css"
 
-import { Container, Table, Button } from "react-bootstrap";
+import { Container, Table, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from '../../api';
 
@@ -18,6 +18,19 @@ return(
 
     <div>
       <h3 className="text-center mt-5 mb-5">Listado de ventas</h3>
+
+      <div>
+      <Row className="justify-content-center align-items-center">
+        <Form.Label column="lg" lg={3}>
+          Buscador de ventas:
+        </Form.Label>
+        <Col xs={7}>
+          <Form.Control type="text" placeholder="Ingrese Id u otro criterio de búsqueda"  />
+        </Col>
+      </Row>
+      </div>
+
+      <h1></h1>
       <Container>
         <Table striped bordered hover>
           <thead>
