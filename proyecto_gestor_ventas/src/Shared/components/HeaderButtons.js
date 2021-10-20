@@ -53,6 +53,12 @@ const HeaderButtons = ({isLoggedIn, setLogin}) => {
                     </Button>
                 </Link>
 
+                <Link to="/ListadoUsuarios"> 
+                    <Button variant="primary" className="me-3">
+                    Listado Usuarios
+                    </Button>
+                </Link>
+
                 <Link to="/"> 
                     <Button variant="outline-light" onClick={logout}>
                         Salida

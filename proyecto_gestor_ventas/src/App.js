@@ -9,11 +9,13 @@ import Footer from "./Shared/components/Footer";
 import Header from "./Shared/components/Header";
 import GestionUsuarios from "./GestionUsuarios/pages/GestionUsuarios";
 import ListadoProductos from "./ListadoProductos/pages/ListadoProductos";
+import ListadoUsuarios from "./ListadoUsuarios/pages/ListadoUsuarios";
 import ListadoVentas from "./ListadoVentas/pages/ListadoVentas";
 import Login from "./Login/pages/Login";
 import RegistroProductos from "./RegistroProductos/pages/RegistroProductos";
 import RegistroVentas from "./RegistroVentas/pages/NuevaVenta";
 import EditarProducto from "./ListadoProductos/pages/EditarProducto";
+import EditarUsuario from "./ListadoUsuarios/pages/EditarUsuario";
 import EditarVenta from "./ListadoVentas/pages/EditarVenta";
 
 import api from "./api";
@@ -37,7 +39,7 @@ function App () {
     };
     const fetchUsuarios = async () => {
       const response = await api.usuarios.list();
-      setVentas(response);
+      setUsuarios(response);
     };
 
     fetchData();
@@ -73,11 +75,17 @@ function App () {
         <Route path="/ListadoProductos" exact>
           <ListadoProductos productos = {productos} setProductos={setProductos}/>
         </Route>
+        <Route path="/ListadoUsuarios" exact>
+          <ListadoUsuarios usuarios = {usuarios} setUsuarios={setUsuarios}/>
+        </Route>
         <Route path="/ListadoVentas" exact>
           <ListadoVentas ventas = {ventas} setVentas={setVentas}/>
         </Route>
         <Route path="/ListadoProductos/Edit/:productId" exact>
           <EditarProducto productos={productos} setProductos={setProductos} />
+        </Route>
+        <Route path="/ListadoUsuarios/Edit/:usuarioId" exact>
+          <EditarUsuario usuarios={usuarios} setUsuarios={setUsuarios} />
         </Route>
         <Route path="/ListadoVentas/Edit/:ventaId" exact>
           <EditarVenta ventas = {ventas} setVentas={setVentas}/>

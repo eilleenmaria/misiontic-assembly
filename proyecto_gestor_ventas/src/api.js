@@ -53,12 +53,12 @@ const api = {
             });
         },
         edit(usuario) {
-            return callApi(`/productos/${usuario._id}`, {
+            return callApi(`/usuarios/${usuario._id}`, {
               method: "PUT",
               body: JSON.stringify(usuario),
             });
         },
-        getUsuarios(id) {
+        getUsuario(id) {
             return callApi(`/usuarios/${id}`);
         },
     },
