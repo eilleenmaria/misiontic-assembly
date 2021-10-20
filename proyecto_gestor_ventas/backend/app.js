@@ -7,6 +7,8 @@ var app = express();
 const productsRoutes = require("./routes/productos");
 const usuarioRoutes = require("./routes/usuarios");
 const ventaRoutes = require("./routes/ventas");
+const userRoutes = require("./routes/users");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
@@ -22,6 +24,7 @@ mongoose.connect(
 app.use("/api/productos", productsRoutes);
 app.use("/api/usuarios", usuarioRoutes);
 app.use("/api/ventas", ventaRoutes);
+app.use("/api/user", userRoutes);
 
 //permite llamar al server
 module.exports = app;

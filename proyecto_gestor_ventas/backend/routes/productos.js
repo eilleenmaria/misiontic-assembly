@@ -3,11 +3,13 @@
 //importar express
 const express = require("express");
 const router = express.Router();
+//importar auth
 
+const auth = require ("../middleware/auth");
 const ProductController = require("../controllers/productos");
 
 //lista todos los productos
-router.get("", ProductController.getProducts);
+router.get("",auth, ProductController.getProducts);
 //crea los productos
 router.post("", ProductController.addProduct);
 //lista los productos disponibles
