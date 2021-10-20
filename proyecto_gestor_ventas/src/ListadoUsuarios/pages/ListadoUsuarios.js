@@ -9,7 +9,7 @@ const ListadoUsuarios = ({usuarios, setUsuarios}) => {
   const deleteUsuario = (event) => {
     const id = event.target.id;
 
-    api.products.delete(id);
+    api.usuarios.delete(id);
     console.log(usuarios);
     const newUsuarios = usuarios.filter((usuario) => usuario._id !== id);
     setUsuarios([...newUsuarios]);

@@ -11,9 +11,13 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
   const { usuarioId } = useParams();
 
   const [newUsuario, setNewUsuario] = useState({
-    title: "",
-    disponible: false,
-    Clave: "",
+    usuario: "",
+    clave: "",
+    nombre: "", 
+    email: "",
+    rol: "",
+    estado: "",     
+    
   });
 
   useEffect(() => {
@@ -46,7 +50,7 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
       <h3 className="text-center mt-5 mb-5">Editar usuarios</h3>
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
-          <Col xs={6}>
+          <Col >
             {error && <Alert variant="danger">{error}</Alert>}
             {success && <Alert variant="success">{success}</Alert>}
             <UsuarioForm

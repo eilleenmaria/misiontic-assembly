@@ -11,7 +11,9 @@ router.get("/rol", UsuarioController.getUsuarioVendedor);
 //busca los usuarios por id
 router.get("/:id", UsuarioController.getUsuarioId);
 //actualizar los usuarios por id
-router.put("/:id", UsuarioController.updateUsuario);
+router.put("/:id", UsuarioController.editUsiario);
+//eliminar los usuarios por id
+router.delete("/:id", UsuarioController.deleteUsuario);
 
 
 

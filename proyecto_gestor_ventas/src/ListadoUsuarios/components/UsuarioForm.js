@@ -6,29 +6,19 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
     <Form>
 
      <Form.Group className="mb-3">
-        <Form.Label>Nombre</Form.Label>
+        <Form.Label>Usuario</Form.Label>
         <Form.Control
           type="text"
-          name="title"
+          name="usuario"
           onChange={handleChange}
-          value={formValue.title}
+          value={formValue.usuario}
         />
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Email</Form.Label>
+        <Form.Label>contraseña</Form.Label>
         <Form.Control
           type="text"
-          name="marca"
-          onChange={handleChange}
-          value={formValue.email}
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Form.Label>Clave</Form.Label>
-        <Form.Control
-          type="number"
           name="clave"
           onChange={handleChange}
           value={formValue.clave}
@@ -36,12 +26,22 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Rol</Form.Label>
+        <Form.Label>Nombre</Form.Label>
         <Form.Control
           type="text"
-          name="rol"
+          name="nombre"
           onChange={handleChange}
-          value={formValue.rol}
+          value={formValue.nombre}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+          type="text"
+          name="email"
+          onChange={handleChange}
+          value={formValue.email}
         />
       </Form.Group>
 
@@ -56,16 +56,16 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Usuario</Form.Label>
+        <Form.Label>Rol</Form.Label>
         <Form.Control
           type="text"
-          name="usuario"
+          name="rol"
           onChange={handleChange}
-          value={formValue.usuario}
+          value={formValue.rol}
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      {/* <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Check
           type="checkbox"
           id="default-checkbox"
@@ -74,7 +74,7 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
           value={formValue.title || "true"}
           onChange={handleChange}
         />
-      </Form.Group>
+      </Form.Group> */}
 
       <Button type="button" variant="outline-secondary">
         Cancelar

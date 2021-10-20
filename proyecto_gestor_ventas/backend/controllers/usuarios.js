@@ -34,36 +34,55 @@ exports.addUsuario = (req, res) => {
 };
 
 //actualizar usuario
-exports.updateUsuario = (req, res) => {
+// exports.updateUsuario = (req, res) => {
 
-  const updateObjectUsuario = {
+//   const updateObjectUsuario = {
 
-      $set: {}
+//       $set: {}
 
-  };
+//   };
 
-  if(req.body.rol) {
+//   if(req.body.rol) {
 
-      updateObjectUsuario['$set']['rol'] = req.body.rol;
+//       updateObjectUsuario['$set']['rol'] = req.body.rol;
 
-  }
+//   }
   
-  if(req.body.estado) {
+//   if(req.body.estado) {
 
-    updateObjectUsuario['$set']['estado'] = req.body.estado;
+//     updateObjectUsuario['$set']['estado'] = req.body.estado;
 
-}
+// }
 
-  Usuario.updateOne({id: req.body.id}, updateObjectUsuario).then((usuarioUpdate) => {
-    if (usuarioUpdate) {
-      res.status(200).json(usuarioUpdate);
-    } 
-    else {
-      res.status(404).json("Usuario  no encontrado");
-    }
+//   Usuario.updateOne({id: req.body.id}, updateObjectUsuario).then((usuarioUpdate) => {
+//     if (usuarioUpdate) {
+//       res.status(200).json(usuarioUpdate);
+//     } 
+//     else {
+//       res.status(404).json("Usuario  no encontrado");
+//     }
 
-  })
-}
+//   })
+// }
+exports.editUsiario = (req, res) => {
+  console.log("Editado");
+  const id = req.params.id;
+
+  const usuarioUpd = new Usuario({
+    _id: id,
+    usuario: req.body.usuario,
+    clave: req.body.clave,
+    nombre: req.body.nombre,
+    email: req.body.email,
+    rol: req.body.rol,
+    estado: req.body.estado,
+    
+  });
+  console.log(usuarioUpd);
+  Usuario.findByIdAndUpdate(id, usuarioUpd).then((usuarioResult) => {
+    res.status(200).json("Usuario actualizado satisfactoriamente");
+  });
+};
 
  exports.getUsuarioVendedor = (req, res) => {
   Usuario.find({ rol: "vendedor" }).then((usuarioResult) => {
@@ -71,3 +90,11 @@ exports.updateUsuario = (req, res) => {
    });
  };
 
+ exports.deleteUsuario = (req, res) => {
+  console.log("Eliminado");
+  const id = req.params.id;
+
+  Usuario.deleteOne({_id: id}).then((usuarioResult) => {
+    res.status(200).json("Usuario eliminado satisfactoriamente");
+  });
+}; 
