@@ -9,7 +9,9 @@ const auth = require ("../middleware/auth");
 const ProductController = require("../controllers/productos");
 
 //lista todos los productos
-router.get("",auth, ProductController.getProducts);
+router.get("", ProductController.getProducts);
+
+router.get("", ProductController.getProducts);
 //crea los productos
 router.post("", ProductController.addProduct);
 //lista los productos disponibles
