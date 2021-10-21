@@ -1,7 +1,9 @@
 const callApi = async (url, options = {}) => {
+    const token =localStorage.getItem("token");
     options.headers = {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
     };
     
     const response = await fetch("http://localhost:3001/api" + url, options);
@@ -89,6 +91,11 @@ const api = {
             });
         },
 
+    },
+    user: {
+        getUser() {
+            return callApi("/user");
+        },
     },
    
 };
