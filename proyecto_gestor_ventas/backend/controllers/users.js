@@ -3,13 +3,13 @@ const User = require("../models/user");
 
 
 exports.GetUser = (req, res) => {
-    const email = req.params.email;
+    const email = req.userData.email;
   User.findOne({email: email}).then((user) => {
       if (user){
           if (user.activo) {
-            res.status(200).json("usuario activo");
+            res.status(200).json("Activo");
           } else{
-            res.status(500).json("usuario inactivo");
+            res.status(500).json("Inactivo");
           }
       } else {
           const newUser = new User({
@@ -18,7 +18,7 @@ exports.GetUser = (req, res) => {
             activo: false,
           });
           newUser.save().then((user) => {
-            res.status(200).json("usuario creado");
+            res.status(200).json("Inactivo");
           });
       }
     

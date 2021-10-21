@@ -2,12 +2,19 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import GoogleLogin from 'react-google-login';
+import api from '../../api';
 
 const HeaderButtons = ({isLoggedIn, setLogin}) => {
     const login=(res)=>{
-        setLogin(true);
         localStorage.setItem("token", res.tokenId);
-        console.log(res);
+        api.user.getUser().then((res) => {
+            if (res === "Activo") {
+                setLogin(true);
+            } else if (res === "Inactivo") {
+                setLogin(false);
+                localStorage.removeItem("token");
+            }
+        });
     };
 
     const logout = () => {
