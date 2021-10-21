@@ -1,5 +1,5 @@
 import Form from 'react-bootstrap/Form';
-import "./ListadoProductos.css";
+//import "./ListadoProductos.css";
 
 import { Container, Table, Button, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
