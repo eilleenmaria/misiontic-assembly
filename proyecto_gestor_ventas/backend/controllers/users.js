@@ -1,7 +1,8 @@
 const User = require("../models/user");
 
-//listar productos
-exports.getUser = (req, res) => {
+
+
+exports.GetUser = (req, res) => {
     const email = req.params.email;
   User.findOne({email: email}).then((user) => {
       if (user){
@@ -11,9 +12,9 @@ exports.getUser = (req, res) => {
             res.status(500).json("usuario inactivo");
           }
       } else {
-          const nemUser = new User({
-            email: userData.email,
-            nombre: userData.name,
+          const newUser = new User({
+            email: req.userData.email,
+            nombre: req.userData.name,
             activo: false,
           });
           newUser.save().then((user) => {
