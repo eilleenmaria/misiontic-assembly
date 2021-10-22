@@ -37,6 +37,9 @@ const api = {
         getProduct(id) {
             return callApi(`/productos/${id}`);
         },
+        find(name){
+            return callApi(`/productos/${name}`);
+        }
     },
     usuarios: {
         list() {
