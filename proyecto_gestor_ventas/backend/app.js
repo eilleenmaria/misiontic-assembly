@@ -3,6 +3,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 const cors = require("cors");
 var app = express();
+require("dotenv").config();
 
 const productsRoutes = require("./routes/productos");
 const usuarioRoutes = require("./routes/usuarios");
@@ -16,7 +17,8 @@ app.use(cors());
 //conexión a la base de datos en MongoDB con mongoose
 mongoose.connect(
     "mongodb+srv://dbUser:SBDrrjnO7RC4B1Rm@cluster0.xifqx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-  ).then(() => {
+  // process.env.MONGODB_CONECT).then(() =>{
+    ).then(() => {
    console.log("Estamos conectados");
   });
 

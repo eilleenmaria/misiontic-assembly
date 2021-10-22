@@ -3,15 +3,18 @@ import {Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import GoogleLogin from 'react-google-login';
 import api from '../../api';
+import {useHistory} from "react-router-dom";
 
-const HeaderButtons = ({isLoggedIn, setLogin}) => {
+const HeaderButtons = ({isLoggedIn, setLogin, setIsAdmin}) => {
+    const history = useHistory();
     const login=(res)=>{
         localStorage.setItem("token", res.tokenId);
         api.user.getUser().then((res) => {
-            if (res === "Activo") {
-                setLogin(true);
-            } else if (res === "Inactivo") {
-                setLogin(false);
+            setLogin(res.activo);
+            if (res.activo) {
+                setIsAdmin(res.rol === "Admin");
+            } else {
+                
                 localStorage.removeItem("token");
             }
         });
@@ -20,6 +23,7 @@ const HeaderButtons = ({isLoggedIn, setLogin}) => {
     const logout = () => {
         setLogin(false);
         localStorage.removeItem("token");
+        history.push("/");
     };
 
     const loginError = (err) => {
@@ -84,6 +88,7 @@ const HeaderButtons = ({isLoggedIn, setLogin}) => {
                     onFailure={loginError}
                     cookiePolicy={'single_host_origin'}
                 />
+                
             </div>
         );
     }

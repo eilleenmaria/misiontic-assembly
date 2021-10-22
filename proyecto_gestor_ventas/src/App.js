@@ -17,16 +17,18 @@ import RegistroVentas from "./RegistroVentas/pages/NuevaVenta";
 import EditarProducto from "./ListadoProductos/pages/EditarProducto";
 import EditarUsuario from "./ListadoUsuarios/pages/EditarUsuario";
 import EditarVenta from "./ListadoVentas/pages/EditarVenta";
-
+import PrivateRoute from "./Shared/components/PrivateRoute";
+import PrivateRouteAdmin from "./Shared/components/PrivateRouteAdmin";
 import api from "./api";
 import {useEffect, useState} from "react";
-
+import{useJwt} from "react-jwt";
 
 function App () {
   const[usuarios, setUsuarios] = useState([]);
   const[logged, setLogged] = useState([false]);
   const[productos, setProductos] = useState([]);
   const[ventas, setVentas] = useState([]);
+  const[isAdmin, setIsAdmin] = useState([true]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,10 +51,15 @@ function App () {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const fetchData = async () => {
+      const validRol = await api.user.validarAdmin();
+      setIsAdmin(validRol);
+    };
 
     if (token === null) {
       setLogged(false);
     } else {
+      fetchData();
       setLogged(true);
     }
   }, []);
@@ -62,6 +69,7 @@ function App () {
       <Header
       isLoggedIn={logged}
       login={setLogged}
+      setIsAdmin={setIsAdmin}
       />
       <Switch>
         <Route path="/" exact>
@@ -69,33 +77,33 @@ function App () {
           isLoggedIn={logged}
           />
         </Route>
-        <Route path="/GestionUsuarios" exact>
+        <PrivateRouteAdmin path="/GestionUsuarios" isAdmin={isAdmin} exact>
           <GestionUsuarios usuarios={usuarios} setUsuarios={setUsuarios} />
-        </Route>
+        </PrivateRouteAdmin>
         <Route path="/ListadoProductos" exact>
           <ListadoProductos productos = {productos} setProductos={setProductos}/>
         </Route>
-        <Route path="/ListadoUsuarios" exact>
+        <PrivateRoute path="/ListadoUsuarios" exact>
           <ListadoUsuarios usuarios = {usuarios} setUsuarios={setUsuarios}/>
-        </Route>
+        </PrivateRoute>
         <Route path="/ListadoVentas" exact>
           <ListadoVentas ventas = {ventas} setVentas={setVentas}/>
         </Route>
-        <Route path="/ListadoProductos/Edit/:productId" exact>
+        <PrivateRouteAdmin path="/ListadoProductos/Edit/:productId" isAdmin={isAdmin} exact>
           <EditarProducto productos={productos} setProductos={setProductos} />
-        </Route>
-        <Route path="/ListadoUsuarios/Edit/:usuarioId" exact>
+        </PrivateRouteAdmin>
+        <PrivateRouteAdmin path="/ListadoUsuarios/Edit/:usuarioId" isAdmin={isAdmin} exact>
           <EditarUsuario usuarios={usuarios} setUsuarios={setUsuarios} />
-        </Route>
-        <Route path="/ListadoVentas/Edit/:ventaId" exact>
+        </PrivateRouteAdmin>
+        <PrivateRouteAdmin path="/ListadoVentas/Edit/:ventaId" isAdmin={isAdmin} exact>
           <EditarVenta ventas = {ventas} setVentas={setVentas}/>
-        </Route>
-        <Route path="/RegistroProductos" exact>
+        </PrivateRouteAdmin>
+        <PrivateRoute path="/RegistroProductos" exact>
           <RegistroProductos productos = {productos} setProductos={setProductos}/>
-        </Route>
-        <Route path="/RegistroVentas" exact>
+        </PrivateRoute>
+        <PrivateRoute path="/RegistroVentas" exact>
           <RegistroVentas ventas = {ventas} setVentas={setVentas} />
-        </Route>
+        </PrivateRoute>
         
         <Redirect to="/"/>
       </Switch>

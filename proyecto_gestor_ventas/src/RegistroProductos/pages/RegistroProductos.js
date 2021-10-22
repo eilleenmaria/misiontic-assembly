@@ -34,8 +34,8 @@ const handleChange = (event) => {
         console.log(apiResponse.err);
       }
       else{
-        setSuccess(apiResponse);
-        setProductos([...productos, newProduct]);
+        setSuccess(apiResponse.mensaje);
+        setProductos([...productos, apiResponse.producto]);
         //history.push("/ListadoProductos");
       }
   };
