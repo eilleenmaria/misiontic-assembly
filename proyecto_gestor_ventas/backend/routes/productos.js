@@ -9,15 +9,15 @@ const auth = require ("../middleware/auth");
 const ProductController = require("../controllers/productos");
 
 //lista todos los productos
-router.get("",auth, ProductController.getProducts);
+router.get("", ProductController.getProducts);
 //crea los productos
-router.post("", ProductController.addProduct);
+router.post("",auth, ProductController.addProduct);
 //lista los productos disponibles
 router.get("/disponibles", ProductController.getProductoDisponible);
 //remover producto
-router.delete("/:id", ProductController.deleteProducto);
+router.delete("/:id",auth, ProductController.deleteProducto);
 //actualizar producto
-router.put("/:id", ProductController.editProduct);
+router.put("/:id",auth, ProductController.editProduct);
 //buscar producto por id
 router.get("/:id", ProductController.getProductId);
 
