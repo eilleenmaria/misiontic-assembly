@@ -80,3 +80,12 @@ exports.editProduct = (req, res) => {
     res.status(200).json("Producto actualizado satisfactoriamente");
   });
 };
+
+//buscar producto por nombre
+
+exports.findProduct = (req, res) => {
+  const name = req.params.name;
+  Producto.find({title: { $regex: ".*" + name + ".*"}}).then((productos) => {
+    res.status(200).json(productos);
+  });
+};

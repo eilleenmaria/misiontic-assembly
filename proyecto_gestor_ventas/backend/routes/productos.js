@@ -18,8 +18,8 @@ router.get("/disponibles", ProductController.getProductoDisponible);
 router.delete("/:id",auth, ProductController.deleteProducto);
 //actualizar producto
 router.put("/:id",auth, ProductController.editProduct);
-//buscar producto por id
-router.get("/:id", ProductController.getProductId);
+//buscar producto por nombre
+router.get("/:name", ProductController.findProduct);
 
 
 //router.get("/entire/:id", ProductController.getProductIdLazyLoading);

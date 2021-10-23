@@ -1,37 +1,33 @@
 import Form from 'react-bootstrap/Form';
-//import "./ListadoProductos.css";
-
+import React, {useState} from "react";
 import { Container, Table, Button, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from '../../api';
+import BusquedaProductos from "../components/BusquedaProductos"
 
-const ListadoProductos = ({productos, setProductos}) => { 
+const ListadoProductos = ({productos}) => { 
+  const[productosGestion, setProductosGestion] = useState([...productos]);
+  
   const deleteProducto = (event) => {
     const id = event.target.id;
-
     api.products.delete(id);
-    console.log(productos);
-    const newProducts = productos.filter((producto) => producto._id !== id);
-    setProductos([...newProducts]);
+    const newProducts = productosGestion.filter(
+      (producto) => producto._id !== id);
+    setProductosGestion([...newProducts]);
 };
 
 return(
     <div>
       <h3 className=" form.control text-center mt-5 mb-5">Listado de productos</h3>
-      <div>
-      <Row className="justify-content-center align-items-center">
+      <Container>
+        <Row className = "mb-5  align-items-center justify-content-center ">
         <Form.Label column="lg" lg={3}>
           Buscador de productos:
         </Form.Label>
-        <Col xs={5}>
-          <Form.Control type="text" placeholder="Ingrese Id, nombre, marca u otro criterio de búsqueda"  />
-        </Col>
-      </Row>
-      </div>
-
-      <h1></h1>
-      
-      <Container>
+          <Col xs={4}> 
+            <BusquedaProductos productos={productos} setProductos={setProductosGestion}/>
+          </Col>
+        </Row>
         <Table striped bordered hover>
           <thead>
             <tr className="text-center">
@@ -45,7 +41,7 @@ return(
             </tr>
           </thead>
           <tbody>
-            {productos.map((producto) => {
+            {productosGestion.map((producto) => {
               return (
                 <tr className="text-center" key={producto._id}>
                   <td>{producto.title}</td>
