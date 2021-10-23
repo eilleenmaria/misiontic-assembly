@@ -82,7 +82,6 @@ exports.editProduct = (req, res) => {
 };
 
 //buscar producto por nombre
-
 exports.findProduct = (req, res) => {
   const name = req.params.name;
   Producto.find({title: { $regex: ".*" + name + ".*"}}).then((productos) => {

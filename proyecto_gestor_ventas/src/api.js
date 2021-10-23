@@ -95,6 +95,9 @@ const api = {
                 method: "DELETE",
             });
         },
+        findVenta(name){
+            return callApi(`/ventas/${name}`);
+        },
 
     },
     user: {

@@ -4,10 +4,10 @@ import api from "../../api";
 const BusquedaProductos = ({productos, setProductos}) => {
     
     const find = (event) => {
-        const regex = new RegExp(".*" + event.target.value +".*");
+        const regex = new RegExp(".*" + event.target.value.toLowerCase() +".*");
 
         const productosFilter = productos.filter((producto) => 
-        producto.title.match(regex));
+        producto.title.toLowerCase().match(regex));
 
         console.log(productosFilter);
         setProductos(productosFilter);
@@ -16,7 +16,7 @@ const BusquedaProductos = ({productos, setProductos}) => {
     return <Form.Control 
         onChange={find}
         type="text" 
-        placeholder="Buscar producto..." />;
+        placeholder="Ingrese nombre..." />;
 };
 
 export default BusquedaProductos;

@@ -73,3 +73,11 @@ exports.deleteVenta = (req, res) => {
     res.status(200).json("Producto eliminado satisfactoriamente");
   });
 }; 
+
+//buscar venta por nombre de cliente
+exports.findVenta = (req, res) => {
+  const name = req.params.name;
+  Venta.find({title: { $regex: ".*" + name + ".*"}}).then((ventas) => {
+    res.status(200).json(ventas);
+  });
+};

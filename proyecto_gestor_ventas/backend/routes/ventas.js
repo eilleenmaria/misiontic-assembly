@@ -14,6 +14,7 @@ router.get("/:id", VentaController.getVentaId);
 router.put("/:id",auth, VentaController.editVenta);
 //Remover Venta
 router.delete("/:id", auth, VentaController.deleteVenta);
-
+//buscar venta por nombre de cliente
+router.get("/:name", VentaController.findVenta);
 
 module.exports = router;

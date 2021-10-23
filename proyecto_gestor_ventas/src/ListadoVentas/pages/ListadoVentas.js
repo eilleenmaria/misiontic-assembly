@@ -1,16 +1,21 @@
 import Form from 'react-bootstrap/Form';
 //import "../../styles/styles.css"
-
+import React, {useState} from "react";
 import { Container, Table, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from '../../api';
+import BusquedaVentas from "../components/BusquedaVentas"
+
 
 const ListadoVentas = ({ventas, setVentas}) => { 
+  //const[ventas, setVentasGestion] = useState([...ventas]);
+
   const deleteVenta = (event) => {
     const id = event.target.id;
     api.ventas.delete(id);
     console.log(ventas);
-    const newVenta = ventas.filter((venta) => venta._id !== id);
+    const newVenta = ventas.filter(
+      (venta) => venta._id !== id);
     setVentas([...newVenta]);
 };
 
@@ -18,20 +23,16 @@ return(
 
     <div>
       <h3 className="text-center mt-5 mb-5">Listado de ventas</h3>
-
-      <div>
-      <Row className="justify-content-center align-items-center">
-        <Form.Label column="lg" lg={3}>
-          Buscador de ventas:
-        </Form.Label>
-        <Col xs={7}>
-          <Form.Control type="text" placeholder="Ingrese Id u otro criterio de búsqueda"  />
-        </Col>
-      </Row>
-      </div>
-
-      <h1></h1>
+      
       <Container>
+        <Row className = "mb-5  align-items-center justify-content-center ">
+          <Form.Label column="lg" lg={3}>
+            Buscador de ventas:
+          </Form.Label>
+            <Col xs={4}> 
+              <BusquedaVentas ventas={ventas} setVentas={setVentas}/>
+            </Col>
+        </Row>
         <Table striped bordered hover>
           <thead>
             <tr className="text-center">
