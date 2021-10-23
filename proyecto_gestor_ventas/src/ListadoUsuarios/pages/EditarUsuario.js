@@ -11,12 +11,11 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
   const { usuarioId } = useParams();
 
   const [newUsuario, setNewUsuario] = useState({
-    usuario: "",
-    clave: "",
     nombre: "", 
     email: "",
-    rol: "",
     estado: "",     
+    rol: "",
+    
     
   });
 

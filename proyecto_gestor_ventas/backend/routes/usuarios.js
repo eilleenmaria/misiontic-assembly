@@ -15,6 +15,13 @@ router.put("/:id", UsuarioController.editUsiario);
 //eliminar los usuarios por id
 router.delete("/:id", UsuarioController.deleteUsuario);
 
+//importar auth
 
+const auth = require ("../middleware/auth");
+const UserController = require("../controllers/users");
+
+
+router.get("",auth, UserController.GetUser);
+router.get("/validarAdmin",auth, UserController.ValidarAdmin);
 
 module.exports = router;

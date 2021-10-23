@@ -1,4 +1,4 @@
-const Usuario = require("../models/usuarios");
+const Usuario = require("../models/user");
 
 exports.getUsuario = (req, res) => {
   Usuario.find().then((postResult) => {
@@ -21,11 +21,9 @@ exports.addUsuario = (req, res) => {
   const usuarioAdd = new Usuario({
     nombre: req.body.nombre,
     email: req.body.email,
-    usuario: req.body.usuario,
-    clave: req.body.clave,
-    rol: req.body.rol,
     estado: req.body.estado,
-  });
+    rol: req.body.rol,
+   });
 
   usuarioAdd.save().then((createdUsuario) => {
     console.log(createdUsuario);
@@ -70,12 +68,11 @@ exports.editUsiario = (req, res) => {
 
   const usuarioUpd = new Usuario({
     _id: id,
-    usuario: req.body.usuario,
-    clave: req.body.clave,
     nombre: req.body.nombre,
     email: req.body.email,
-    rol: req.body.rol,
     estado: req.body.estado,
+    rol: req.body.rol,
+    
     
   });
   console.log(usuarioUpd);
