@@ -74,7 +74,7 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
           label="Activo"
           name="activo"
           //  value={formValue.activo}
-           value={formValue.email|| "true"}
+           value={formValue.activo|| "true"}
           onChange={handleChange}
         />
       </Form.Group>
