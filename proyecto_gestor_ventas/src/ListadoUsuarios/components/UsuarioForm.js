@@ -5,7 +5,7 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
   return (
     <Form>
 
-     <Form.Group className="mb-3">
+     {/*<Form.Group className="mb-3">
         <Form.Label>Usuario</Form.Label>
         <Form.Control
           type="text"
@@ -23,7 +23,7 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
           onChange={handleChange}
           value={formValue.clave}
         />
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group className="mb-3">
         <Form.Label>Nombre</Form.Label>
@@ -45,7 +45,7 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      {/* <Form.Group className="mb-3">
         <Form.Label>Estado</Form.Label>
         <Form.Control
           type="text"
@@ -53,7 +53,7 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
           onChange={handleChange}
           value={formValue.estado}
         />
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group className="mb-3">
         <Form.Label>Rol</Form.Label>
@@ -63,18 +63,21 @@ const UsuarioForm = ({ handleChange, handleClick, formValue }) => {
           onChange={handleChange}
           value={formValue.rol}
         />
-      </Form.Group>
+           </Form.Group>
+     
+     
 
-      {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Check
           type="checkbox"
           id="default-checkbox"
-          label="Disponible"
-          name="disponible"
-          value={formValue.title || "true"}
+          label="Activo"
+          name="activo"
+          //  value={formValue.activo}
+           value={formValue.email|| "true"}
           onChange={handleChange}
         />
-      </Form.Group> */}
+      </Form.Group>
 
       <Button type="button" variant="outline-secondary">
         Cancelar

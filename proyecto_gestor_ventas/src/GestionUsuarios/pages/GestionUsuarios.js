@@ -14,12 +14,12 @@ const GestionUsuarios = ({usuarios, setUsuarios}) => {
     const [success, setSuccess] = useState();
 
     const [newUsuario, setNewUsuario] = useState({
-        usuario: "",
-        clave: "",
+        
         nombre: "",
         email: "",
-        rol: "",
         estado:"",
+        rol: "",
+        
     });
     const handleChange = (event) => {
         setNewUsuario({ ...newUsuario, [event.target.name]: event.target.value });
@@ -53,7 +53,7 @@ const GestionUsuarios = ({usuarios, setUsuarios}) => {
                     </div>
                     <div>
                             <Form>
-                                <Row className="mb-3">
+                                {/* <Row className="mb-3">
                                         <Form.Group as={Col} controlId="formnomusuario">
                                         <Form.Label>Usuario</Form.Label>
                                         <Form.Control type="text" name ="usuario" 
@@ -65,7 +65,7 @@ const GestionUsuarios = ({usuarios, setUsuarios}) => {
                                         <Form.Control type="text" name ="clave" 
                                          onChange={handleChange} placeholder="Clave" />
                                     </Form.Group>
-                                </Row>
+                                </Row> */}
 
                                 <Form.Group className="mb-3" controlId="formNombres">
                                     <Form.Label>Nombre</Form.Label>
@@ -73,39 +73,54 @@ const GestionUsuarios = ({usuarios, setUsuarios}) => {
                                      onChange={handleChange} placeholder="Ingrese Nombres y Apellidos" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formNombres">
-                                    <Form.Label>E mail</Form.Label>
+                                    <Form.Label>Email</Form.Label>
                                     <Form.Control type= "text" name = "email"
                                      onChange={handleChange} placeholder="Ingrese email" />
                                 </Form.Group>
 
 
-                                <Row className="mb-3">
-                                    
+                                {/* <Form.Group as={Col} controlId="formestado">
+                                        <Form.Label>Activo</Form.Label>
+                                        <Form.Select type= "Boolean" name = "estado"  onChange={handleChange} 
+                                        defaultValue="Seleccione...">
+                                           <option selected disabled>Seleccione una opcion</option> 
+                                            <option>true</option>
+                                            <option>false</option>
+                                        </Form.Select>
+                                </Form.Group> */}
+
+                                <Row className="mb-3">                                    
 
                                     <Form.Group  as={Col} controlId="formrol">
                                         <Form.Label>Rol</Form.Label>
                                         <Form.Select type= "text" name = "rol"  onChange={handleChange} 
                                         defaultValue="Seleccione...">
-                                            <option>Administrador</option>
+                                            <option selected disabled>Seleccione una opcion</option> 
+                                            <option>Admin</option>
                                             <option>Vendedor</option>
                                         </Form.Select>
                                     </Form.Group>
-
-                                    <Form.Group as={Col} controlId="formestado">
-                                        <Form.Label>Estado</Form.Label>
-                                        <Form.Select type= "text" name = "estado"  onChange={handleChange} 
-                                        defaultValue="Seleccione...">
-                                            <option>Pendiente</option>
-                                            <option>Autorizado</option>
-                                            <option>No Autorizado</option>
-                                        </Form.Select>
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Check
+                                        type="checkbox"
+                                        id="default-checkbox"
+                                        label="Activo"
+                                        name="activo"
+                                        value="true"
+                                        onChange={handleChange}
+                                        />
                                     </Form.Group>
+                                    
                                 </Row>
                                 <center>
-                                <Button variant="primary">Nuevo</Button>{' '}
+                                <Button onClick={handleClick} type="button"variant="primary">Guardar</Button>{' '}
+                                <Button type="primary" variant="outline-secondary">
+                                Cancelar
+                                </Button>
+                                {/*<Button variant="primary">Nuevo</Button>{' '}
                                 <Button onClick={handleClick} type="button"variant="primary">Guardar</Button>{' '}
                                 <Button variant="primary">Modificar</Button>{' '}
-                                <Button variant="primary">Eliminar</Button>{' '}
+                                <Button variant="primary">Eliminar</Button>{' '}*/}
                                 </center>
                                 <h1></h1>
             <Row className="justify-content-center">

@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 import api from '../../api';
 
 const ListadoUsuarios = ({usuarios, setUsuarios}) => { 
-  const deleteUsuario = (event) => {
+  const deleteUsuarios = (event) => {
     const id = event.target.id;
 
     api.usuarios.delete(id);
     console.log(usuarios);
-    const newUsuarios = usuarios.filter((usuario) => usuario._id !== id);
-    setUsuarios([...newUsuarios]);
+    const newUsuario = usuarios.filter((usuario) => usuario._id !== id);
+    setUsuarios([...newUsuario]);
 };
 
 return( 
@@ -25,10 +25,10 @@ return(
             <tr className="text-center">
               <th>Nombre</th>
               <th>Email</th>
-              <th>Clave</th>
-              <th>Rol</th>
               <th>Estado</th>
-              <th>Usuario</th>
+              <th>Rol</th>
+              {/*<th>Clave</th>
+              <th>Usuario</th>*/}
             </tr>
           </thead>
           <tbody>
@@ -37,16 +37,18 @@ return(
                 <tr className="text-center" key={usuario._id}>
                   <td>{usuario.nombre}</td>
                   <td>{usuario.email}</td>
-                  <td>{usuario.clave}</td>
-                  <td>{usuario.rol}</td>
+                  {/* <td>{usuario.estado}</td> */}
+                  <td>{usuario.rol}</td> 
+                  {/*<td>{usuario.clave}</td>
+                  <td>{usuario.rol}</td> 
                   <td>{usuario.estado}</td>
-                  <td>{usuario.usuario}</td>
+                  <td>{usuario.usuario}</td>*/}
                   <td>
                     <input
                       type="checkbox"
                       className="custom-control-input text-center"
                       id="customCheck1"
-                      checked={usuario.disponible}
+                      checked={usuario.activo}
                       readOnly
                     />{" "}
                   </td>
@@ -73,7 +75,7 @@ return(
 
                     <Button
                       variant="danger"
-                      onClick={deleteUsuario}
+                      onClick={deleteUsuarios}
                       id={usuario._id}
                       className="ms-2"
                     >
