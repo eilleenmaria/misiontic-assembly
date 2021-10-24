@@ -78,15 +78,16 @@ const GestionUsuarios = ({usuarios, setUsuarios}) => {
                                      onChange={handleChange} placeholder="Ingrese email" />
                                 </Form.Group>
 
-                                <Form.Group as={Col} controlId="formestado">
+
+                                {/* <Form.Group as={Col} controlId="formestado">
                                         <Form.Label>Activo</Form.Label>
-                                        <Form.Select type= "text" name = "estado"  onChange={handleChange} 
+                                        <Form.Select type= "Boolean" name = "estado"  onChange={handleChange} 
                                         defaultValue="Seleccione...">
-                                            <option>Pendiente</option>
+                                           <option selected disabled>Seleccione una opcion</option> 
                                             <option>true</option>
                                             <option>false</option>
                                         </Form.Select>
-                                </Form.Group>
+                                </Form.Group> */}
 
                                 <Row className="mb-3">                                    
 
@@ -94,9 +95,20 @@ const GestionUsuarios = ({usuarios, setUsuarios}) => {
                                         <Form.Label>Rol</Form.Label>
                                         <Form.Select type= "text" name = "rol"  onChange={handleChange} 
                                         defaultValue="Seleccione...">
-                                            <option>Administrador</option>
+                                            <option selected disabled>Seleccione una opcion</option> 
+                                            <option>Admin</option>
                                             <option>Vendedor</option>
                                         </Form.Select>
+                                    </Form.Group>
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Check
+                                        type="checkbox"
+                                        id="default-checkbox"
+                                        label="Activo"
+                                        name="activo"
+                                        value="true"
+                                        onChange={handleChange}
+                                        />
                                     </Form.Group>
                                     
                                 </Row>

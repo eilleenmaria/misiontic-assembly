@@ -37,7 +37,7 @@ return(
                 <tr className="text-center" key={usuario._id}>
                   <td>{usuario.nombre}</td>
                   <td>{usuario.email}</td>
-                  <td>{usuario.estado}</td>
+                  {/* <td>{usuario.estado}</td> */}
                   <td>{usuario.rol}</td> 
                   {/*<td>{usuario.clave}</td>
                   <td>{usuario.rol}</td> 
@@ -48,7 +48,7 @@ return(
                       type="checkbox"
                       className="custom-control-input text-center"
                       id="customCheck1"
-                      checked={usuario.disponible}
+                      checked={usuario.activo}
                       readOnly
                     />{" "}
                   </td>

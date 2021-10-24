@@ -21,7 +21,7 @@ exports.addUsuario = (req, res) => {
   const usuarioAdd = new Usuario({
     nombre: req.body.nombre,
     email: req.body.email,
-    estado: req.body.estado,
+    activo: req.body.activo,
     rol: req.body.rol,
    });
 
@@ -70,7 +70,7 @@ exports.editUsiario = (req, res) => {
     _id: id,
     nombre: req.body.nombre,
     email: req.body.email,
-    estado: req.body.estado,
+    activo: req.body.activo,
     rol: req.body.rol,
     
     

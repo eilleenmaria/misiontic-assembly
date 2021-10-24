@@ -13,7 +13,7 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
   const [newUsuario, setNewUsuario] = useState({
     nombre: "", 
     email: "",
-    estado: "",     
+    activo: false,     
     rol: "",
     
     
