@@ -5,6 +5,7 @@ const cors = require("cors");
 var app = express();
 require("dotenv").config();
 
+
 const productsRoutes = require("./routes/productos");
 const usuarioRoutes = require("./routes/usuarios");
 const ventaRoutes = require("./routes/ventas");
@@ -21,6 +22,13 @@ mongoose.connect(
     ).then(() => {
    console.log("Estamos conectados");
   });
+
+/*conexión a la base de datos en MongoDB con mongoose (para Heroku)
+mongoose.connect(
+  process.env.MONGODB_CONNECT).then(() => {
+    console.log("Estamos conectados");
+});
+*/
 
 //Definición y organización de rutas
 app.use("/api/productos", productsRoutes);
