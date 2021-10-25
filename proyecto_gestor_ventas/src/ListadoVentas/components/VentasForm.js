@@ -4,9 +4,6 @@ import Button from "react-bootstrap/Button";
 const VentasForm = ({ handleChange, handleClick, formValue }) => {
   return (
     <Form>
-
-
-
      <Form.Group className="mb-3">
         <Form.Label>Vendedor</Form.Label>
         <Form.Control
