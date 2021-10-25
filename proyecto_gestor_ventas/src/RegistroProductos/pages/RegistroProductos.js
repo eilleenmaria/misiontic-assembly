@@ -21,11 +21,9 @@ const RegistroProductos = ({productos, setProductos}) => {
       disponible: false,
       valorUnitario: 0,
   });
-
-const handleChange = (event) => {
+  const handleChange = (event) => {
     setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
   };
-
   const handleClick = async () => {
     //llamada de la api con el método post
     const apiResponse = await api.products.create(newProduct);
@@ -34,9 +32,10 @@ const handleChange = (event) => {
         console.log(apiResponse.err);
       }
       else{
-        setSuccess(apiResponse.mensaje);
-        setProductos([...productos, apiResponse.producto]);
-        //history.push("/ListadoProductos");
+        setSuccess(apiResponse);
+        setProductos([...productos, newProduct]);
+        //history.push("/ListadoVentas");
+  //history.push("/ListadoProductos");
       }
   };
 

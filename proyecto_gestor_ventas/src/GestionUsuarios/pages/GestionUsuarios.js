@@ -17,7 +17,7 @@ const GestionUsuarios = ({usuarios, setUsuarios}) => {
         
         nombre: "",
         email: "",
-        estado:"",
+        activo: false,
         rol: "",
         
     });
@@ -94,7 +94,7 @@ const GestionUsuarios = ({usuarios, setUsuarios}) => {
                                     <Form.Group  as={Col} controlId="formrol">
                                         <Form.Label>Rol</Form.Label>
                                         <Form.Select type= "text" name = "rol"  onChange={handleChange} 
-                                        defaultValue="Seleccione...">
+                                        >
                                             <option selected disabled>Seleccione una opcion</option> 
                                             <option>Admin</option>
                                             <option>Vendedor</option>

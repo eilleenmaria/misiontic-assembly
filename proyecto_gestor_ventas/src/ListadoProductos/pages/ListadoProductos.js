@@ -5,15 +5,16 @@ import { Link } from "react-router-dom";
 import api from '../../api';
 import BusquedaProductos from "../components/BusquedaProductos"
 
-const ListadoProductos = ({productos}) => { 
-  const[productosGestion, setProductosGestion] = useState([...productos]);
+const ListadoProductos = ({productos, setProductos}) => { 
+ // const[productosGestion, setProductosGestion] = useState([...productos]);
   
   const deleteProducto = (event) => {
     const id = event.target.id;
     api.products.delete(id);
-    const newProducts = productosGestion.filter(
+    console.log(productos);
+    const newProducts = productos.filter(
       (producto) => producto._id !== id);
-    setProductosGestion([...newProducts]);
+    setProductos([...newProducts]);
 };
 
 return(
@@ -25,7 +26,7 @@ return(
           Buscador de productos:
         </Form.Label>
           <Col xs={4}> 
-            <BusquedaProductos productos={productos} setProductos={setProductosGestion}/>
+            <BusquedaProductos productos={productos} setProductos={setProductos}/>
           </Col>
         </Row>
         <Table striped bordered hover>
@@ -41,7 +42,7 @@ return(
             </tr>
           </thead>
           <tbody>
-            {productosGestion.map((producto) => {
+            {productos.map((producto) => {
               return (
                 <tr className="text-center" key={producto._id}>
                   <td>{producto.title}</td>

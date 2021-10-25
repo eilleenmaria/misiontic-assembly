@@ -3,7 +3,7 @@ import api from "../../api";
 
 const BusquedaProductos = ({productos, setProductos}) => {
     
-    const find = (event) => {
+    const findProduct = (event) => {
         const regex = new RegExp(".*" + event.target.value.toLowerCase() +".*");
 
         const productosFilter = productos.filter((producto) => 
@@ -14,7 +14,7 @@ const BusquedaProductos = ({productos, setProductos}) => {
     };
     
     return <Form.Control 
-        onChange={find}
+        onChange={findProduct}
         type="text" 
         placeholder="Ingrese nombre..." />;
 };

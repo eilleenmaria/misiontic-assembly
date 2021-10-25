@@ -25,6 +25,7 @@ const api = {
                 body: JSON.stringify(producto),
             });
         },
+       
         delete(id){
             return callApi(`/productos/${id}`, {
                 method: "DELETE",
@@ -39,7 +40,7 @@ const api = {
         getProduct(id) {
             return callApi(`/productos/${id}`);
         },
-        find(name){
+        findProduct(name){
             return callApi(`/productos/${name}`);
         }
     },
